@@ -18,7 +18,7 @@ const GOOGLE_REVIEWS_LINK = "https://www.google.com/search?q=mr.+beef+burgrz+kar
 
 const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
     return (
-        <header id="home" className="relative w-full pt-44 md:pt-48 pb-32 md:pb-48 overflow-hidden bg-white border-b border-neutral-100">
+        <header id="home" className="relative w-full pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden bg-white border-b border-neutral-100">
             {/* Dynamic faint glows for Light Theme */}
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                 <div className="absolute -top-24 -left-24 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-orange-400 rounded-full blur-[100px] md:blur-[180px] animate-pulse"></div>
@@ -57,7 +57,7 @@ const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
 
 const OurStory: React.FC = () => {
     return (
-        <section id="about" className="py-24 bg-white relative overflow-hidden border-b border-neutral-100">
+        <section id="about" className="py-12 md:py-20 bg-white relative overflow-hidden border-b border-neutral-100">
             <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
                 <div className="absolute -top-24 -left-24 w-96 h-96 bg-orange-500 rounded-full blur-[120px]"></div>
                 <div className="absolute bottom-0 right-0 w-64 h-64 bg-yellow-400 rounded-full blur-[100px]"></div>
