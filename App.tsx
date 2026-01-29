@@ -18,9 +18,9 @@ const GOOGLE_REVIEWS_LINK = "https://www.google.com/search?q=mr.+beef+burgrz+kar
 
 const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
     return (
-        <header id="home" className="relative w-full pt-36 md:pt-48 pb-32 md:pb-48 overflow-hidden bg-white border-b border-neutral-100">
-            {/* Dynamic glows for Light Theme */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+        <header id="home" className="relative w-full pt-44 md:pt-48 pb-32 md:pb-48 overflow-hidden bg-white border-b border-neutral-100">
+            {/* Dynamic faint glows for Light Theme */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                 <div className="absolute -top-24 -left-24 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-orange-400 rounded-full blur-[100px] md:blur-[180px] animate-pulse"></div>
                 <div className="absolute bottom-0 right-0 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-yellow-300 rounded-full blur-[120px] md:blur-[220px] animate-pulse" style={{animationDelay: '1s'}}></div>
             </div>
@@ -375,7 +375,7 @@ const App: React.FC = () => {
                      <h3 className="font-bebas text-6xl text-white tracking-tighter leading-none uppercase drop-shadow-md">
                         MR. BEEF BURGRZ
                      </h3>
-                     <p className="text-orange-100 text-xl max-w-md mx-auto lg:mx-0 font-medium font-inter">Juicy smash burgers, crispy chicken, and loaded fries. <br/> <span className="text-yellow-300 font-bold">#KarachiSpecial</span></p>
+                     <p className="text-orange-50 text-xl max-w-md mx-auto lg:mx-0 font-medium font-inter">Juicy smash burgers, crispy chicken, and loaded fries. <br/> <span className="text-yellow-300 font-bold">#KarachiSpecial</span></p>
                      
                      <div className="flex gap-4 justify-center lg:justify-start">
                         {[Instagram, Facebook, Youtube, TikTokIcon, Linkedin].map((Icon, i) => (
@@ -407,10 +407,10 @@ const App: React.FC = () => {
                      <div className="space-y-6 flex flex-col items-center sm:items-start">
                          <h4 className="font-bebas text-2xl text-yellow-300 tracking-widest border-b border-white/20 w-fit pb-1 uppercase drop-shadow-sm">LEGENDARY LINKS</h4>
                          <div className="space-y-4 flex flex-col items-center sm:items-start w-full">
-                            <button onClick={() => handleNavigate('menu')} className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-lg font-bebas text-center sm:text-left w-full sm:w-auto">Browse Menu</button>
-                            <button onClick={() => handleNavigate('home', '#about')} className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-lg font-bebas text-center sm:text-left w-full sm:w-auto">Our Story</button>
-                            <button onClick={() => handleNavigate('home', '#purity-promise')} className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-lg font-bebas text-center sm:text-left w-full sm:w-auto">Our Promise</button>
-                            <a href={GOOGLE_REVIEWS_LINK} target="_blank" rel="noopener noreferrer" className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-lg font-bebas text-center sm:text-left w-full sm:w-auto">Reviews</a>
+                            <button onClick={() => handleNavigate('menu')} className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Browse Menu</button>
+                            <button onClick={() => handleNavigate('home', '#about')} className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Our Story</button>
+                            <button onClick={() => handleNavigate('home', '#purity-promise')} className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Our Promise</button>
+                            <a href={GOOGLE_REVIEWS_LINK} target="_blank" rel="noopener noreferrer" className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Reviews</a>
                          </div>
                      </div>
                  </div>
