@@ -1,3 +1,4 @@
+
 import React, { useRef, useState, useEffect } from 'react';
 import { MenuItem } from '../types';
 import { MENU_ITEMS } from '../data';
@@ -210,7 +211,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
                                 {item.name}
                               </h5>
                               
-                              <p className="text-[9px] md:text-sm text-gray-400 leading-tight mb-2 md:mb-4 flex-grow line-clamp-2 md:line-clamp-3">
+                              <p className="text-[9px] md:text-sm text-gray-400 leading-tight mb-2 md:mb-4 flex-grow">
                                 {item.description}
                               </p>
 
