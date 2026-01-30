@@ -170,8 +170,6 @@ const ReviewSection: React.FC = () => {
 };
 
 const LiveMap = () => {
-  const [activeTab, setActiveTab] = useState('Overview');
-  
   return (
     <section id="location" className="py-24 bg-white relative border-t border-neutral-100">
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
@@ -184,163 +182,18 @@ const LiveMap = () => {
           </p>
         </div>
         
-        <div className="flex flex-col lg:flex-row rounded-3xl overflow-hidden border-8 border-neutral-50 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] reveal active h-[850px] lg:h-[650px] bg-white relative group">
-          {/* Business Profile Sidebar - Styled as Google Business Result */}
-          <div className="w-full lg:w-[400px] h-full overflow-y-auto no-scrollbar border-r border-neutral-100 flex flex-col bg-white shrink-0 z-20">
-            {/* Search Header Mockup */}
-            <div className="p-4 bg-white sticky top-0 z-30 flex items-center gap-3 border-b border-neutral-100 shadow-sm">
-               <div className="flex-1 bg-white border border-neutral-200 rounded-full px-4 py-2.5 flex items-center justify-between shadow-sm">
-                  <span className="text-sm font-medium text-gray-700">Mr. Beef Burgrz</span>
-                  <div className="flex items-center gap-2 text-gray-400">
-                    <Search size={18} />
-                    <div className="w-px h-4 bg-gray-200"></div>
-                    <X size={18} />
-                  </div>
-               </div>
-            </div>
-
-            {/* Profile Header Image */}
-            <div className="relative h-48 sm:h-56 shrink-0 bg-neutral-900">
-               <img 
-                 src="https://raw.githubusercontent.com/faaaroooq22/menu-mrbeefburgrz/main/Logo.png" 
-                 alt="Storefront" 
-                 className="w-full h-full object-contain p-8" 
-               />
-               <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md p-2 rounded-full shadow-lg cursor-pointer">
-                 <ArrowLeft className="w-5 h-5 text-gray-700" />
-               </div>
-            </div>
-            
-            {/* Core Info & Tabs */}
-            <div className="p-6">
-               <div className="mb-6">
-                 <h3 className="text-3xl font-inter font-medium text-gray-900 leading-tight">Mr. Beef Burgrz</h3>
-                 <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
-                    <span className="text-sm font-bold text-gray-700">4.9</span>
-                    <div className="flex text-yellow-500">
-                       {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
-                    </div>
-                    <span className="text-sm text-gray-500">(143) · Rs 1-1,000</span>
-                 </div>
-                 <p className="text-sm text-gray-500 mt-1">Fast food restaurant</p>
-               </div>
-               
-               <button className="w-full py-3 px-4 border border-neutral-200 rounded-xl text-sm font-bold text-gray-700 hover:bg-neutral-50 transition-all flex items-center justify-center gap-2 mb-4 group/btn">
-                 <UtensilsCrossed size={16} className="text-gray-400 group-hover/btn:text-orange-600" />
-                 Manage your Business Profile
-               </button>
-               
-               <div className="flex items-center gap-6 text-xs text-gray-500 py-3 border-b border-neutral-100 mb-4">
-                  <div className="flex items-center gap-2">
-                    <RefreshCw size={14} className="text-blue-500" />
-                    <span className="font-medium">9,725 views</span>
-                  </div>
-               </div>
-               
-               {/* Google Style Tabs */}
-               <div className="flex items-center gap-2 overflow-x-auto no-scrollbar border-b border-neutral-100 mb-6">
-                  {['Overview', 'Menu', 'Reviews', 'About'].map((tab) => (
-                    <button 
-                      key={tab} 
-                      onClick={() => setActiveTab(tab)}
-                      className={`px-4 py-3 text-sm font-bold whitespace-nowrap transition-all relative ${activeTab === tab ? 'text-blue-600' : 'text-gray-500 hover:text-gray-800'}`}
-                    >
-                      {tab}
-                      {activeTab === tab && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>}
-                    </button>
-                  ))}
-               </div>
-               
-               {/* Overview Section Layout */}
-               {activeTab === 'Overview' && (
-                 <div className="space-y-6 animate-in fade-in duration-300">
-                    <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm relative overflow-hidden group/ad">
-                       <button className="absolute top-2 right-2 text-gray-400"><X size={16} /></button>
-                       <p className="text-sm font-bold text-gray-900 mb-2">Show up more often on Google</p>
-                       <div className="flex gap-4 items-start">
-                          <div className="flex-1">
-                            <p className="text-[12px] text-gray-600 leading-relaxed mb-4">Get $380 in Google Ads credit. Offer for new advertisers only. Terms and conditions apply.</p>
-                            <button className="px-5 py-2 bg-white text-blue-600 border border-neutral-200 rounded-full text-xs font-bold hover:bg-blue-50 transition-colors shadow-sm">Start now</button>
-                          </div>
-                          <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center shrink-0 border border-blue-100">
-                             <Sparkles className="text-blue-500 w-8 h-8" />
-                          </div>
-                       </div>
-                    </div>
-
-                    <div className="grid grid-cols-4 gap-2">
-                        {[
-                          { icon: Navigation, label: 'Directions', color: 'bg-blue-600 text-white' },
-                          { icon: Bookmark, label: 'Save', color: 'bg-white text-blue-600 border border-neutral-200' },
-                          { icon: MapPin, label: 'Nearby', color: 'bg-white text-blue-600 border border-neutral-200' },
-                          { icon: Share2, label: 'Share', color: 'bg-white text-blue-600 border border-neutral-200' },
-                        ].map((btn, i) => (
-                          <div key={i} className="flex flex-col items-center gap-1.5">
-                            <div className={`w-10 h-10 rounded-full flex items-center justify-center ${btn.color} cursor-pointer hover:opacity-80 transition-opacity shadow-sm`}>
-                              <btn.icon size={18} />
-                            </div>
-                            <span className="text-[11px] font-medium text-gray-600">{btn.label}</span>
-                          </div>
-                        ))}
-                    </div>
-
-                    <div className="pt-4 border-t border-neutral-100 space-y-5">
-                       <div className="flex items-start gap-4">
-                          <MapPin className="text-gray-400 w-5 h-5 shrink-0 mt-0.5" />
-                          <div className="flex-1">
-                            <p className="text-sm text-gray-800">Malir, Karachi, Pakistan</p>
-                            <span className="text-xs text-blue-600 font-medium cursor-pointer">Copy address</span>
-                          </div>
-                       </div>
-                       <div className="flex items-start gap-4">
-                          <Clock className="text-gray-400 w-5 h-5 shrink-0 mt-0.5" />
-                          <div className="flex-1">
-                            <p className="text-sm text-gray-800 font-medium">Open · Closes 3:00 AM</p>
-                            <span className="text-xs text-gray-500">More hours</span>
-                          </div>
-                       </div>
-                       <div className="flex items-start gap-4">
-                          <Phone className="text-gray-400 w-5 h-5 shrink-0 mt-0.5" />
-                          <p className="text-sm text-blue-600 font-medium">+92 324 0460398</p>
-                       </div>
-                    </div>
-                 </div>
-               )}
-            </div>
-          </div>
-          
-          {/* Main Map Background */}
-          <div className="flex-1 relative bg-neutral-100 z-10">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.1818290264287!2d67.18142277537198!3d24.902723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3392ef5b27601%3A0x9d51235b4df2a83f!2sMr.%20Beef%20Burgrz!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale-[0.1] contrast-[1.05]"
-            >
-            </iframe>
-            
-            {/* Top Google Style Floating Filters (Desktop only) */}
-            <div className="absolute top-4 left-4 right-4 hidden lg:flex items-center gap-3 overflow-x-auto no-scrollbar pointer-events-none">
-                {[
-                  { label: 'Nearby restaurants', icon: UtensilsCrossed },
-                  { label: 'Hotels', icon: MapPin },
-                  { label: 'Things to do', icon: Star },
-                  { label: 'Bars', icon: CupSoda },
-                  { label: 'Coffee', icon: Clock },
-                  { label: 'Takeout', icon: ShoppingBag },
-                  { label: 'Groceries', icon: Package }
-                ].map((f, i) => (
-                  <div key={i} className="flex items-center gap-2 bg-white/95 backdrop-blur-sm border border-neutral-200 px-4 py-2.5 rounded-full shadow-md shrink-0 pointer-events-auto cursor-pointer hover:bg-neutral-50 transition-colors">
-                    <f.icon size={16} className="text-blue-500" />
-                    <span className="text-sm font-medium text-gray-700">{f.label}</span>
-                  </div>
-                ))}
-            </div>
-          </div>
+        <div className="rounded-3xl overflow-hidden border-8 border-neutral-50 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] reveal active h-[500px] md:h-[600px] bg-white relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.1818290264287!2d67.18142277537198!3d24.902723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3392ef5b27601%3A0x9d51235b4df2a83f!2sMr.%20Beef%20Burgrz!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen={true} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            className="grayscale-[0.1] contrast-[1.05]"
+          >
+          </iframe>
         </div>
       </div>
     </section>
