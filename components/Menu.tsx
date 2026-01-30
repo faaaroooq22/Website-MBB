@@ -200,12 +200,6 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
                             onClick={() => onAddToCart(item)}
                             className={`group relative flex flex-col p-3 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-white border border-neutral-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer tap-highlight-transparent active:scale-95 overflow-hidden`}
                           >
-                            {item.isPopular && (
-                                <div className="absolute -top-1 -right-1 bg-orange-600 text-white text-[7px] md:text-[9px] font-black px-2 md:px-3 py-1 rounded-bl-xl md:rounded-bl-2xl z-10 tracking-widest shadow-lg">
-                                    TOP
-                                </div>
-                            )}
-
                             <div className="flex flex-col h-full relative z-10">
                               <h5 className="font-bebas text-lg md:text-3xl tracking-tight text-gray-900 mb-0.5 md:mb-1 group-hover:text-orange-600 transition-colors leading-none">
                                 {item.name}
