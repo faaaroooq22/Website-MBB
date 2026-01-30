@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { X, Trash2, Plus, Minus, MessageCircle, MapPin, Phone, User, FileText, Bike, ShoppingBag, AlertCircle } from 'lucide-react';
 import { CartItem } from '../types';
@@ -75,9 +76,10 @@ export const Cart: React.FC<CartProps> = ({
     message += `\n*Total Amount: ${totalAmount}/-*`;
     message += `\n\nPlease confirm my order.`;
 
-    const phoneNumber = '923240460398';
+    // Updated WhatsApp link to custom business link
+    const waBaseUrl = 'https://wa.me/message/GCCQJTH6ZQF6O1';
     const encodedMessage = encodeURIComponent(message);
-    const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const url = `${waBaseUrl}?text=${encodedMessage}`;
     
     window.open(url, '_blank');
   };

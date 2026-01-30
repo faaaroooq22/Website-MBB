@@ -1,4 +1,3 @@
-
 import { MenuItem } from './types';
 
 export const MENU_ITEMS: MenuItem[] = [
@@ -52,7 +51,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Brioche bun, 150g beef patty, two cheese slices, beef pepperoni, honey mustard sauce.',
     price: 850,
     category: 'House of Beef',
-    subcategory: 'Premium / Calories Loaded'
+    subcategory: 'Premium Smash Burgers'
   },
   {
     id: 'bp2',
@@ -60,7 +59,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Brioche bun, 150g beef patty, two cheese slices, grilled onions, caramelized onions, grilled mushrooms, honey mustard sauce.',
     price: 850,
     category: 'House of Beef',
-    subcategory: 'Premium / Calories Loaded'
+    subcategory: 'Premium Smash Burgers'
   },
   {
     id: 'bp3',
@@ -68,7 +67,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Brioche bun, two 125g beef patties, two cheese slices, iceberg, grilled onion, chipotle sauce.',
     price: 950,
     category: 'House of Beef',
-    subcategory: 'Premium / Calories Loaded',
+    subcategory: 'Premium Smash Burgers',
     isPopular: true
   },
   {
@@ -77,7 +76,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Brioche bun, three 125g beef patties, three cheese slices, caramelized onions, chef\'s signature sauce.',
     price: 1300,
     category: 'House of Beef',
-    subcategory: 'Premium / Calories Loaded'
+    subcategory: 'Premium Smash Burgers'
   },
 
   // --- HOUSE OF CHICKEN ---

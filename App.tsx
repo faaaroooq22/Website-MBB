@@ -15,10 +15,11 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 );
 
 const GOOGLE_REVIEWS_LINK = "https://www.google.com/search?q=mr.+beef+burgrz+karachi+reviews";
+const LINKEDIN_LINK = "https://www.linkedin.com/company/mr-beef-burgrz/";
 
 const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
     return (
-        <header id="home" className="relative w-full pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden bg-white border-b border-neutral-100">
+        <header id="home" className="relative w-full pt-28 md:pt-36 pb-12 md:pb-20 overflow-hidden bg-white border-b border-neutral-100">
             {/* Dynamic faint glows for Light Theme */}
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                 <div className="absolute -top-24 -left-24 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-orange-400 rounded-full blur-[100px] md:blur-[180px] animate-pulse"></div>
@@ -57,7 +58,7 @@ const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
 
 const OurStory: React.FC = () => {
     return (
-        <section id="about" className="py-12 md:py-20 bg-white relative overflow-hidden border-b border-neutral-100">
+        <section id="about" className="py-12 md:py-16 bg-white relative overflow-hidden border-b border-neutral-100">
             <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
                 <div className="absolute -top-24 -left-24 w-96 h-96 bg-orange-500 rounded-full blur-[120px]"></div>
                 <div className="absolute bottom-0 right-0 w-64 h-64 bg-yellow-400 rounded-full blur-[100px]"></div>
@@ -100,7 +101,7 @@ const OurStory: React.FC = () => {
                                 REAL BEEF FLAVOR
                             </h4>
                             <p className="text-sm text-gray-600 leading-relaxed">
-                                Our smash burgers are made with 100% pure cow beef, using round or chuck portions only. No mixing. No shortcuts. This is how we stand for real beef flavor.
+                                Our smash burgers are made with 100% pure cow beef. No mixing. No shortcuts. This is how we stand for real beef flavor.
                             </p>
                         </div>
                         
@@ -378,11 +379,21 @@ const App: React.FC = () => {
                      <p className="text-orange-50 text-xl max-w-md mx-auto lg:mx-0 font-medium font-inter">Juicy smash burgers, crispy chicken, and loaded fries. <br/> <span className="text-yellow-300 font-bold">#KarachiSpecial</span></p>
                      
                      <div className="flex gap-4 justify-center lg:justify-start">
-                        {[Instagram, Facebook, Youtube, TikTokIcon, Linkedin].map((Icon, i) => (
-                            <a key={i} href="#" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
-                                <Icon className="w-6 h-6" />
-                            </a>
-                        ))}
+                        <a href="https://www.instagram.com/mr.beefburgrz?igsh=bW5xZm43bmR6Ymsw" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
+                            <Instagram className="w-6 h-6" />
+                        </a>
+                        <a href="https://www.facebook.com/share/1A5ejXApa7/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
+                            <Facebook className="w-6 h-6" />
+                        </a>
+                        <a href="https://youtube.com/@mrbeefburgrz?si=vQ-h8ygT5oiEFdEo" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
+                            <Youtube className="w-6 h-6" />
+                        </a>
+                        <a href="https://www.tiktok.com/@mrbeefburgrz?_r=1&_t=ZS-91N9HD5GTdx" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
+                            <TikTokIcon className="w-6 h-6" />
+                        </a>
+                        <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
+                            <Linkedin className="w-6 h-6" />
+                        </a>
                      </div>
                  </div>
                  
@@ -394,11 +405,11 @@ const App: React.FC = () => {
                               <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-orange-600 transition-all"><Phone className="w-5 h-5" /></div>
                               +92 324 0460398
                             </a>
-                            <a href="#" className="flex items-center justify-center sm:justify-start gap-4 text-orange-50 hover:text-white transition-colors font-inter group">
+                            <a href="https://wa.me/message/GCCQJTH6ZQF6O1" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-4 text-orange-50 hover:text-white transition-colors font-inter group">
                               <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-orange-600 transition-all"><MessageCircle className="w-5 h-5" /></div>
                               WhatsApp Us
                             </a>
-                            <a href="#location" onClick={(e) => { e.preventDefault(); handleNavigate('home', '#location'); }} className="flex items-center justify-center sm:justify-start gap-4 text-orange-50 hover:text-white transition-colors font-inter group">
+                            <a href="https://maps.app.goo.gl/Y4brSsZDP2oCEQKTA" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-4 text-orange-50 hover:text-white transition-colors font-inter group">
                               <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-orange-600 transition-all"><MapPin className="w-5 h-5" /></div>
                               Find Our Location
                             </a>
@@ -411,6 +422,7 @@ const App: React.FC = () => {
                             <button onClick={() => handleNavigate('home', '#about')} className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Our Story</button>
                             <button onClick={() => handleNavigate('home', '#purity-promise')} className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Our Promise</button>
                             <a href={GOOGLE_REVIEWS_LINK} target="_blank" rel="noopener noreferrer" className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Reviews</a>
+                            <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer" className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">LinkedIn</a>
                          </div>
                      </div>
                  </div>

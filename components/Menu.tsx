@@ -1,8 +1,7 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { MenuItem } from '../types';
 import { MENU_ITEMS } from '../data';
-import { Plus, ChevronLeft, ChevronRight, Flame, Utensils, Drumstick, Package, ArrowLeft, ShoppingCart } from 'lucide-react';
+import { Plus, ChevronLeft, ChevronRight, Flame, Utensils, Drumstick, Package, ArrowLeft, ShoppingCart, CupSoda } from 'lucide-react';
 
 interface MenuProps {
   onAddToCart: (item: MenuItem) => void;
@@ -16,8 +15,9 @@ const NAV_ITEMS = [
   { label: 'Premium Beef', targetId: 'sec-premium-beef', icon: Utensils, color: 'text-red-600' },
   { label: 'Zingsters', targetId: 'sec-house-of-chicken', icon: Drumstick, color: 'text-orange-600' },
   { label: 'Broast', targetId: 'sec-broast', icon: Utensils, color: 'text-amber-600' },
-  { label: 'Fries', targetId: 'sec-fries', icon: Flame, color: 'text-yellow-600' },
   { label: 'Snacks', targetId: 'sec-snacks', icon: Package, color: 'text-orange-400' },
+  { label: 'Fries', targetId: 'sec-fries', icon: Flame, color: 'text-yellow-600' },
+  { label: 'Drinks', targetId: 'sec-drinks', icon: CupSoda, color: 'text-blue-500' },
   { label: 'Extras', targetId: 'sec-addons', icon: Package, color: 'text-gray-500' },
 ];
 
@@ -45,8 +45,8 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-        // Offset for sticky navigation bar (which is 100px roughly)
-        const headerOffset = 120; 
+        // Offset for sticky navigation bar + some extra padding to ensure heading is visible
+        const headerOffset = 240; 
         const bodyRect = document.body.getBoundingClientRect().top;
         const elementRect = element.getBoundingClientRect().top;
         const elementPosition = elementRect - bodyRect;
@@ -171,7 +171,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
             const containerIdVal = getContainerId(category);
 
             return (
-              <div key={category} id={containerIdVal} className="reveal active scroll-mt-48">
+              <div key={category} id={containerIdVal} className="reveal active scroll-mt-64">
                 <div className="flex items-center gap-4 mb-8">
                     <h3 className={`text-4xl sm:text-7xl font-bebas tracking-tighter uppercase text-gray-900`}>
                       {category}
@@ -185,7 +185,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
                   const sectionId = getSubcategorySectionId(category, subcategory);
 
                   return (
-                    <div key={subcategory} id={sectionId} className="mb-10 last:mb-0 scroll-mt-56">
+                    <div key={subcategory} id={sectionId} className="mb-10 last:mb-0 scroll-mt-64">
                       {showSubheader && (
                         <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
