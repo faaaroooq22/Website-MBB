@@ -45,8 +45,8 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-        // Offset for sticky navigation bar + some extra padding to ensure heading is visible
-        const headerOffset = 240; 
+        // High offset to ensure headings aren't hidden by the navigation bar and header
+        const headerOffset = 260; 
         const bodyRect = document.body.getBoundingClientRect().top;
         const elementRect = element.getBoundingClientRect().top;
         const elementPosition = elementRect - bodyRect;
