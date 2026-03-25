@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigat
         </div>
         
         {/* Back: Hours */}
-        <div className={`absolute inset-0 backface-hidden rotate-y-180 flex items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-orange-500 to-orange-600 text-white shadow-xl px-2`}>
+        <div className={`absolute inset-0 backface-hidden rotate-y-180 flex items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-red-500 to-red-600 text-white shadow-xl px-2`}>
           <div className="flex flex-col items-center justify-center leading-[1.1] text-center">
              <span className={`${mobile ? "text-[8px]" : "text-[11px]"} font-black tracking-tight text-white uppercase`}>OPEN DAILY</span>
              <span className={`${mobile ? "text-[8px]" : "text-[11px]"} font-black tracking-tight text-white uppercase`}>7PM - 4AM</span>
@@ -102,17 +102,17 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigat
                 className={`transition-all duration-500 h-10 md:h-16 w-auto drop-shadow-sm`} 
               />
               <div className="flex flex-col ml-3 border-l-2 border-neutral-200 pl-3">
-                <span className="font-bebas text-xl md:text-2xl tracking-tighter text-orange-500 leading-none uppercase">MR. BEEF BURGRZ</span>
+                <span className="font-bebas text-xl md:text-2xl tracking-tighter text-red-500 leading-none uppercase">MR. BEEF BURGRZ</span>
                 <span className="font-cursive text-gray-500 text-[11px] md:text-sm whitespace-nowrap">Juicy to the last bite!</span>
               </div>
             </a>
 
             <div className="flex md:hidden items-center gap-2">
               <StatusBadge mobile />
-              <button onClick={onOpenCart} className="relative p-2 text-gray-700 bg-white rounded-lg border border-neutral-200 hover:border-orange-500 transition-colors">
+              <button onClick={onOpenCart} className="relative p-2 text-gray-700 bg-white rounded-lg border border-neutral-200 hover:border-red-500 transition-colors">
                 <ShoppingCart className="w-5 h-5" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-orange-600 text-white text-[10px] font-black w-4 h-4 flex items-center justify-center rounded-full shadow-lg">
+                  <span className="absolute -top-1.5 -right-1.5 bg-red-600 text-white text-[10px] font-black w-4 h-4 flex items-center justify-center rounded-full shadow-lg">
                     {cartCount}
                   </span>
                 )}
@@ -129,12 +129,12 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigat
                   onClick={(e) => handleLinkClick(e, link)}
                   className={`relative font-bebas text-xl tracking-widest transition-colors duration-300 group ${
                     (currentView === 'menu' && link.name === 'MENU')
-                      ? 'text-orange-600' 
-                      : 'text-gray-500 hover:text-orange-500'
+                      ? 'text-red-600' 
+                      : 'text-gray-500 hover:text-red-500'
                   }`}
                 >
                   {link.name}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${(currentView === 'menu' && link.name === 'MENU') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-red-500 transition-all duration-300 ${(currentView === 'menu' && link.name === 'MENU') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                 </a>
               ))}
             </div>
@@ -142,12 +142,12 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigat
             <div className="flex items-center gap-4">
               <button
                 onClick={onOpenCart}
-                className="relative group flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 shadow-xl shadow-orange-600/20 active:scale-95 border border-white/10"
+                className="relative group flex items-center gap-3 bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 shadow-xl shadow-red-600/20 active:scale-95 border border-white/10"
               >
                 <ShoppingCart className="w-5 h-5" />
                 <span className="tracking-widest font-bebas text-lg uppercase">CART</span>
                 {cartCount > 0 && (
-                  <span className="bg-white text-orange-600 text-xs font-black px-2 py-0.5 rounded-full">
+                  <span className="bg-white text-red-600 text-xs font-black px-2 py-0.5 rounded-full">
                     {cartCount}
                   </span>
                 )}
@@ -166,7 +166,7 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigat
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link)}
-                  className={`font-bebas text-lg tracking-widest whitespace-nowrap transition-colors ${(currentView === 'menu' && link.name === 'MENU') ? 'text-orange-600' : 'text-gray-500 hover:text-orange-600'}`}
+                  className={`font-bebas text-lg tracking-widest whitespace-nowrap transition-colors ${(currentView === 'menu' && link.name === 'MENU') ? 'text-red-600' : 'text-gray-500 hover:text-red-600'}`}
               >
                   {link.name}
               </a>

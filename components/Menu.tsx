@@ -70,11 +70,11 @@ const PlusOutlineIcon = ({ className }: { className?: string }) => (
 );
 
 const NAV_ITEMS = [
-  { label: 'Classic Beef', targetId: 'sec-house-of-beef', icon: BurgerSingleIcon, color: 'text-orange-500' },
+  { label: 'Classic Beef', targetId: 'sec-house-of-beef', icon: BurgerSingleIcon, color: 'text-red-500' },
   { label: 'Premium Beef', targetId: 'sec-premium-beef', icon: BurgerDoubleIcon, color: 'text-red-600' },
-  { label: 'Zingsters', targetId: 'sec-house-of-chicken', icon: BurgerCrispyIcon, color: 'text-orange-600' },
+  { label: 'Zingsters', targetId: 'sec-house-of-chicken', icon: BurgerCrispyIcon, color: 'text-red-600' },
   { label: 'Grilled Chicken', targetId: 'sec-grilled-chicken', icon: BurgerGrilledIcon, color: 'text-red-500' },
-  { label: 'Snacks', targetId: 'sec-snacks', icon: NuggetsIcon, color: 'text-orange-400' },
+  { label: 'Snacks', targetId: 'sec-snacks', icon: NuggetsIcon, color: 'text-red-400' },
   { label: 'Fries', targetId: 'sec-fries', icon: FriesIcon, color: 'text-yellow-600' },
   { label: 'Drinks', targetId: 'sec-drinks', icon: CupSoda, color: 'text-blue-500' },
   { label: 'Extras', targetId: 'sec-addons', icon: PlusOutlineIcon, color: 'text-gray-500' },
@@ -154,7 +154,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
             className="group p-2 bg-neutral-900 border border-neutral-800 rounded-full hover:bg-neutral-800 transition-all active:scale-95 flex items-center justify-center"
             aria-label="Back to Home"
           >
-             <ArrowLeft className="w-5 h-5 text-gray-200 group-hover:text-orange-500 transition-colors" />
+             <ArrowLeft className="w-5 h-5 text-gray-200 group-hover:text-red-500 transition-colors" />
           </button>
           
           <div className="flex flex-col items-center">
@@ -164,11 +164,11 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
 
           <button 
             onClick={onOpenCart}
-            className="relative p-2 bg-white border border-neutral-200 rounded-xl hover:border-orange-500 transition-all active:scale-95"
+            className="relative p-2 bg-white border border-neutral-200 rounded-xl hover:border-red-500 transition-all active:scale-95"
           >
             <ShoppingCart className="w-5 h-5 text-gray-700" />
             {cartCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-orange-600 text-white text-[9px] font-black w-4 h-4 flex items-center justify-center rounded-full">
+                <span className="absolute -top-1.5 -right-1.5 bg-red-600 text-white text-[9px] font-black w-4 h-4 flex items-center justify-center rounded-full">
                     {cartCount}
                 </span>
             )}
@@ -176,7 +176,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
       </div>
 
       <div className="container mx-auto px-4 text-center mt-12 mb-10 reveal active">
-        <p className="font-cursive text-orange-600 text-2xl opacity-90 underline decoration-yellow-400 decoration-4 underline-offset-4">Juicy, flavorful, and made fresh for you.</p>
+        <p className="font-cursive text-red-600 text-2xl opacity-90 underline decoration-yellow-400 decoration-4 underline-offset-4">Juicy, flavorful, and made fresh for you.</p>
       </div>
 
       {/* Sticky Navigation Bar */}
@@ -186,7 +186,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
             {showLeftArrow && (
               <button 
                 onClick={() => scrollNav('left')}
-                className="absolute left-1 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 rounded-full shadow-lg border border-neutral-100 text-orange-600 transition-all hover:bg-orange-600 hover:text-white"
+                className="absolute left-1 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 rounded-full shadow-lg border border-neutral-100 text-red-600 transition-all hover:bg-red-600 hover:text-white"
               >
                 <ChevronLeft size={20} />
               </button>
@@ -203,10 +203,10 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
                         onClick={() => scrollToSection(item.targetId)}
                         className="flex flex-col items-center gap-2 min-w-[90px] group transition-all duration-300"
                     >
-                        <div className="w-12 h-12 rounded-2xl border border-neutral-100 flex items-center justify-center bg-neutral-50 group-hover:bg-orange-600 group-hover:border-orange-600 transition-all duration-300 shadow-sm">
+                        <div className="w-12 h-12 rounded-2xl border border-neutral-100 flex items-center justify-center bg-neutral-50 group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-300 shadow-sm">
                             <item.icon className={`w-6 h-6 ${item.color} group-hover:text-white transition-colors`} />
                         </div>
-                        <span className="text-[10px] font-black text-gray-400 group-hover:text-orange-600 uppercase tracking-widest transition-colors whitespace-nowrap">
+                        <span className="text-[10px] font-black text-gray-400 group-hover:text-red-600 uppercase tracking-widest transition-colors whitespace-nowrap">
                             {item.label}
                         </span>
                     </button>
@@ -216,7 +216,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
             {showRightArrow && (
               <button 
                 onClick={() => scrollNav('right')}
-                className="absolute right-1 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 rounded-full shadow-lg border border-neutral-100 text-orange-600 transition-all hover:bg-orange-600 hover:text-white"
+                className="absolute right-1 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 rounded-full shadow-lg border border-neutral-100 text-red-600 transition-all hover:bg-red-600 hover:text-white"
               >
                 <ChevronRight size={20} />
               </button>
@@ -249,7 +249,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
                     <div key={subcategory} id={sectionId} className="mb-10 last:mb-0 scroll-mt-64">
                       {showSubheader && (
                         <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
                           {subcategory}
                         </h4>
                       )}
@@ -262,7 +262,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
                             className={`group relative flex flex-col p-3 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-white border border-neutral-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer tap-highlight-transparent active:scale-95 overflow-hidden`}
                           >
                             <div className="flex flex-col h-full relative z-10">
-                              <h5 className="font-bebas text-lg md:text-3xl tracking-tight text-gray-900 mb-0.5 md:mb-1 group-hover:text-orange-600 transition-colors leading-none">
+                              <h5 className="font-bebas text-lg md:text-3xl tracking-tight text-gray-900 mb-0.5 md:mb-1 group-hover:text-red-600 transition-colors leading-none">
                                 {item.name}
                               </h5>
                               
@@ -275,12 +275,12 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
                                   {item.price}/-
                                 </span>
                                 
-                                <div className="w-6 h-6 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-neutral-50 text-orange-600 flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition-all shadow-sm">
+                                <div className="w-6 h-6 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-neutral-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all shadow-sm">
                                     <Plus className="w-3 h-3 md:w-6 md:h-6" />
                                 </div>
                               </div>
                             </div>
-                            <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-orange-500/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+                            <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-red-500/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
                           </div>
                         ))}
                       </div>

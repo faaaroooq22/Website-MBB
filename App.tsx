@@ -21,24 +21,24 @@ const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
         <header id="home" className="relative w-full pt-28 md:pt-36 pb-12 md:pb-20 overflow-hidden bg-white border-b border-neutral-100">
             {/* Dynamic faint glows for Light Theme */}
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-                <div className="absolute -top-24 -left-24 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-orange-400 rounded-full blur-[100px] md:blur-[180px] animate-pulse"></div>
+                <div className="absolute -top-24 -left-24 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-red-400 rounded-full blur-[100px] md:blur-[180px] animate-pulse"></div>
                 <div className="absolute bottom-0 right-0 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-yellow-300 rounded-full blur-[120px] md:blur-[220px] animate-pulse" style={{animationDelay: '1s'}}></div>
             </div>
             
             <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center">
                 <div className="max-w-5xl space-y-4 md:space-y-8 reveal active">
-                    <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-orange-600 text-white font-black tracking-[0.2em] text-[10px] md:text-xs mb-0 md:mb-4 shadow-[0_10px_30px_rgba(234,88,12,0.3)] uppercase">
+                    <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-red-600 text-white font-black tracking-[0.2em] text-[10px] md:text-xs mb-0 md:mb-4 shadow-[0_10px_30px_rgba(220,38,38,0.3)] uppercase">
                         <Sparkles size={16} className="fill-current animate-spin-slow" />
                         PREMIUM SMASH BURGERS
                     </div>
                     <h1 className="font-bebas text-[18vw] sm:text-[14vw] md:text-[10vw] text-gray-900 tracking-tighter leading-[0.9] md:leading-[0.85] drop-shadow-sm px-2">
-                        JUICY TO THE <br /> <span className="text-orange-500 underline decoration-yellow-400 decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">LAST BITE!</span>
+                        JUICY TO THE <br /> <span className="text-red-500 underline decoration-yellow-400 decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">LAST BITE!</span>
                     </h1>
                     <div className="pt-2 md:pt-8 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
                         <p className="font-cursive text-gray-600 text-2xl md:text-5xl -rotate-2">Karachi's finest smash burgers.</p>
                         <button 
                           onClick={onOrderClick} 
-                          className="group relative bg-orange-600 text-white px-10 md:px-14 py-4 md:py-6 rounded-2xl font-bebas text-2xl md:text-4xl tracking-widest shadow-2xl shadow-orange-600/30 hover:bg-orange-500 transition-all active:scale-95 overflow-hidden border border-white/20"
+                          className="group relative bg-red-600 text-white px-10 md:px-14 py-4 md:py-6 rounded-2xl font-bebas text-2xl md:text-4xl tracking-widest shadow-2xl shadow-red-600/30 hover:bg-red-500 transition-all active:scale-95 overflow-hidden border border-white/20"
                         >
                           <span className="relative z-10 uppercase font-bebas">ORDER NOW</span>
                           <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
@@ -49,7 +49,7 @@ const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
             
             {/* Scroll Indicator */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30 animate-bounce">
-                <div className="w-0.5 h-12 bg-gradient-to-b from-orange-500 to-transparent"></div>
+                <div className="w-0.5 h-12 bg-gradient-to-b from-red-500 to-transparent"></div>
             </div>
         </header>
     );
@@ -59,15 +59,15 @@ const OurStory: React.FC = () => {
     return (
         <section id="about" className="py-12 md:py-16 bg-white relative overflow-hidden border-b border-neutral-100">
             <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-                <div className="absolute -top-24 -left-24 w-96 h-96 bg-orange-500 rounded-full blur-[120px]"></div>
+                <div className="absolute -top-24 -left-24 w-96 h-96 bg-red-500 rounded-full blur-[120px]"></div>
                 <div className="absolute bottom-0 right-0 w-64 h-64 bg-yellow-400 rounded-full blur-[100px]"></div>
             </div>
             
             <div className="container mx-auto px-4 max-w-5xl relative z-10">
                 <div className="text-center mb-16 reveal active">
-                    <span className="font-cursive text-4xl text-orange-600 block mb-4">Alhamdulillah.</span>
+                    <span className="font-cursive text-4xl text-red-600 block mb-4">Alhamdulillah.</span>
                     <h2 className="font-bebas text-6xl md:text-8xl text-gray-900 leading-none uppercase">
-                        OUR <span className="text-orange-500 underline decoration-yellow-400 decoration-4 underline-offset-4">STORY</span>
+                        OUR <span className="text-red-500 underline decoration-yellow-400 decoration-4 underline-offset-4">STORY</span>
                     </h2>
                 </div>
                 
@@ -79,13 +79,13 @@ const OurStory: React.FC = () => {
                         <p>
                             The owner grew up cooking food at home and learning flavors the traditional way. After working in different jobs over the years, that passion finally turned into a profession, taking the role of head chef to serve food with purpose.
                         </p>
-                        <div className="bg-neutral-50 p-8 rounded-3xl border-l-8 border-orange-500 shadow-xl shadow-neutral-100">
+                        <div className="bg-neutral-50 p-8 rounded-3xl border-l-8 border-red-500 shadow-xl shadow-neutral-100">
                             <p className="italic text-gray-900 font-medium mb-4">
                                 "We officially started on 29th August 2025 with one simple mission: to serve the same quality of food that we use in our own home."
                             </p>
                             <div className="flex items-center gap-2">
-                                <div className="w-8 h-1 bg-orange-500"></div>
-                                <span className="text-[10px] font-black uppercase tracking-widest text-orange-600">Established 2025</span>
+                                <div className="w-8 h-1 bg-red-500"></div>
+                                <span className="text-[10px] font-black uppercase tracking-widest text-red-600">Established 2025</span>
                             </div>
                         </div>
                         <p>
@@ -94,9 +94,9 @@ const OurStory: React.FC = () => {
                     </div>
                     
                     <div className="md:col-span-5 space-y-8">
-                        <div className="bg-white p-8 rounded-3xl border border-neutral-100 shadow-lg group hover:border-orange-200 transition-colors">
-                            <h4 className="font-bebas text-3xl text-orange-600 mb-4 flex items-center gap-3">
-                                <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center text-white"><ChefHat size={18} /></div>
+                        <div className="bg-white p-8 rounded-3xl border border-neutral-100 shadow-lg group hover:border-red-200 transition-colors">
+                            <h4 className="font-bebas text-3xl text-red-600 mb-4 flex items-center gap-3">
+                                <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center text-white"><ChefHat size={18} /></div>
                                 REAL BEEF FLAVOR
                             </h4>
                             <p className="text-sm text-gray-600 leading-relaxed">
@@ -104,12 +104,12 @@ const OurStory: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-orange-600 p-8 rounded-3xl border border-orange-700 shadow-lg text-white group hover:bg-orange-700 transition-colors">
+                        <div className="bg-red-600 p-8 rounded-3xl border border-red-700 shadow-lg text-white group hover:bg-red-700 transition-colors">
                             <h4 className="font-bebas text-3xl text-yellow-400 mb-4 flex items-center gap-3">
                                 <Sparkles size={24} className="fill-yellow-400" />
                                 THE DIFFERENCE
                             </h4>
-                            <p className="text-sm text-orange-50 leading-relaxed">
+                            <p className="text-sm text-red-50 leading-relaxed">
                                 Many people avoid beef burgers because of an unpleasant smell. We invite you to try our smash burgers once and feel the difference. The taste speaks for itself.
                             </p>
                         </div>
@@ -140,12 +140,12 @@ const ReviewSection: React.FC = () => {
     return (
         <section id="reviews" className="py-24 bg-neutral-50 relative overflow-hidden">
             <div className="container mx-auto px-4 max-w-4xl text-center reveal active">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 text-orange-600 font-bold text-xs mb-8 border border-orange-100 uppercase tracking-widest">
-                    <Star size={14} className="fill-orange-600" />
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 text-red-600 font-bold text-xs mb-8 border border-red-100 uppercase tracking-widest">
+                    <Star size={14} className="fill-red-600" />
                     Trusted by many
                 </div>
                 <h2 className="font-bebas text-6xl md:text-8xl text-gray-900 leading-none uppercase mb-6">
-                    4.9 RATING OF <br /><span className="text-orange-500">143+ CUSTOMERS</span>
+                    4.9 RATING OF <br /><span className="text-red-500">143+ CUSTOMERS</span>
                 </h2>
                 <div className="flex justify-center gap-1 mb-8">
                     {[...Array(5)].map((_, i) => (
@@ -159,7 +159,7 @@ const ReviewSection: React.FC = () => {
                     href={GOOGLE_REVIEWS_LINK} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="inline-flex items-center gap-3 bg-white border-2 border-orange-600 text-orange-600 px-12 py-5 rounded-2xl font-bebas text-2xl tracking-widest hover:bg-orange-600 hover:text-white transition-all duration-300 shadow-xl shadow-orange-100 hover:shadow-orange-200 uppercase"
+                    className="inline-flex items-center gap-3 bg-white border-2 border-red-600 text-red-600 px-12 py-5 rounded-2xl font-bebas text-2xl tracking-widest hover:bg-red-600 hover:text-white transition-all duration-300 shadow-xl shadow-red-100 hover:shadow-red-200 uppercase"
                 >
                     Review it on Google <ExternalLink size={20} />
                 </a>
@@ -174,10 +174,10 @@ const LiveMap = () => {
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
         <div className="mb-12 text-center reveal active">
           <h2 className="font-bebas text-6xl md:text-8xl text-gray-900 leading-none mb-4 uppercase">
-            VISIT <span className="text-orange-500">US</span>
+            VISIT <span className="text-red-500">US</span>
           </h2>
           <p className="text-gray-500 font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-2">
-            <MapPin size={16} className="text-orange-600" /> Malir, Karachi, Pakistan
+            <MapPin size={16} className="text-red-600" /> Malir, Karachi, Pakistan
           </p>
         </div>
         
@@ -316,7 +316,7 @@ const App: React.FC = () => {
             
             <OurStory />
 
-            <section id="purity-promise" className="py-24 bg-orange-600 relative overflow-hidden border-y border-orange-700">
+            <section id="purity-promise" className="py-24 bg-red-600 relative overflow-hidden border-y border-red-700">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400 opacity-20 blur-[100px] rounded-full"></div>
                 <div className="container mx-auto px-4 max-w-6xl relative z-10 py-16">
                     <h2 className="font-bebas text-6xl sm:text-8xl text-center text-white mb-20 tracking-tighter reveal uppercase text-shadow-lg">
@@ -334,7 +334,7 @@ const App: React.FC = () => {
                         </div>
                         <div className="space-y-10 reveal">
                             <div className="bg-white p-12 rounded-3xl shadow-2xl space-y-6">
-                                <p className="font-cursive text-3xl text-orange-600 leading-tight">
+                                <p className="font-cursive text-3xl text-red-600 leading-tight">
                                     "Bringing authentic, premium smash burgers to the people of Karachi."
                                 </p>
                                 <p className="text-gray-600 text-lg leading-relaxed font-medium font-inter">
@@ -342,7 +342,7 @@ const App: React.FC = () => {
                                 </p>
                                 <div className="pt-8 border-t border-neutral-100 flex gap-10 items-center">
                                   <div className="text-center">
-                                    <span className="block text-4xl font-bebas text-orange-600">80/20</span>
+                                    <span className="block text-4xl font-bebas text-red-600">80/20</span>
                                     <span className="text-xs text-gray-400 font-bold tracking-widest uppercase font-inter">Ratio</span>
                                   </div>
                                   <div className="text-center">
@@ -372,29 +372,29 @@ const App: React.FC = () => {
       </main>
 
       {currentView === 'home' && (
-      <footer id="contact" className="relative bg-orange-600 text-white pt-24 pb-12 mt-auto border-t border-orange-700">
+      <footer id="contact" className="relative bg-red-600 text-white pt-24 pb-12 mt-auto border-t border-red-700">
          <div className="container mx-auto px-6 max-w-7xl relative z-10">
              <div className="grid lg:grid-cols-2 gap-16 mb-20">
                  <div className="space-y-8 text-center lg:text-left">
                      <h3 className="font-bebas text-6xl text-white tracking-tighter leading-none uppercase drop-shadow-md">
                         MR. BEEF BURGRZ
                      </h3>
-                     <p className="text-orange-50 text-xl max-w-md mx-auto lg:mx-0 font-medium font-inter">Juicy smash burgers, crispy chicken, and loaded fries. <br/> <span className="text-yellow-300 font-bold">#KarachiSpecial</span></p>
+                     <p className="text-red-50 text-xl max-w-md mx-auto lg:mx-0 font-medium font-inter">Juicy smash burgers, crispy chicken, and loaded fries. <br/> <span className="text-yellow-300 font-bold">#KarachiSpecial</span></p>
                      
                      <div className="flex gap-4 justify-center lg:justify-start">
-                        <a href="https://www.instagram.com/mr.beefburgrz?igsh=bW5xZm43bmR6Ymsw" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
+                        <a href="https://www.instagram.com/mr.beefburgrz?igsh=bW5xZm43bmR6Ymsw" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
                             <Instagram className="w-6 h-6" />
                         </a>
-                        <a href="https://www.facebook.com/share/1A5ejXApa7/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
+                        <a href="https://www.facebook.com/share/1A5ejXApa7/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
                             <Facebook className="w-6 h-6" />
                         </a>
-                        <a href="https://youtube.com/@mrbeefburgrz?si=vQ-h8ygT5oiEFdEo" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
+                        <a href="https://youtube.com/@mrbeefburgrz?si=vQ-h8ygT5oiEFdEo" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
                             <Youtube className="w-6 h-6" />
                         </a>
-                        <a href="https://www.tiktok.com/@mrbeefburgrz?_r=1&_t=ZS-91N9HD5GTdx" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
+                        <a href="https://www.tiktok.com/@mrbeefburgrz?_r=1&_t=ZS-91N9HD5GTdx" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
                             <TikTokIcon className="w-6 h-6" />
                         </a>
-                        <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
+                        <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
                             <Linkedin className="w-6 h-6" />
                         </a>
                      </div>
@@ -404,16 +404,16 @@ const App: React.FC = () => {
                      <div className="space-y-6">
                          <h4 className="font-bebas text-2xl text-yellow-300 tracking-widest border-b border-white/20 w-fit pb-1 mx-auto sm:mx-0 uppercase drop-shadow-sm">GET IN TOUCH</h4>
                          <div className="space-y-4">
-                            <a href="tel:+923240460398" className="flex items-center justify-center sm:justify-start gap-4 text-orange-50 hover:text-white transition-colors font-inter group">
-                              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-orange-600 transition-all"><Phone className="w-5 h-5" /></div>
+                            <a href="tel:+923240460398" className="flex items-center justify-center sm:justify-start gap-4 text-red-50 hover:text-white transition-colors font-inter group">
+                              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-red-600 transition-all"><Phone className="w-5 h-5" /></div>
                               +92 324 0460398
                             </a>
-                            <a href="https://wa.me/923240460398?text=Hi%20Mr.%20Beef%20Burgrz!%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-4 text-orange-50 hover:text-white transition-colors font-inter group">
-                              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-orange-600 transition-all"><MessageCircle className="w-5 h-5" /></div>
+                            <a href="https://wa.me/923240460398?text=Hi%20Mr.%20Beef%20Burgrz!%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-4 text-red-50 hover:text-white transition-colors font-inter group">
+                              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-red-600 transition-all"><MessageCircle className="w-5 h-5" /></div>
                               WhatsApp Us
                             </a>
-                            <a href="https://maps.app.goo.gl/Y4brSsZDP2oCEQKTA" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-4 text-orange-50 hover:text-white transition-colors font-inter group">
-                              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-orange-600 transition-all"><MapPin className="w-5 h-5" /></div>
+                            <a href="https://maps.app.goo.gl/Y4brSsZDP2oCEQKTA" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-4 text-red-50 hover:text-white transition-colors font-inter group">
+                              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-red-600 transition-all"><MapPin className="w-5 h-5" /></div>
                               Find Our Location
                             </a>
                          </div>
@@ -421,17 +421,17 @@ const App: React.FC = () => {
                      <div className="space-y-6 flex flex-col items-center sm:items-start">
                          <h4 className="font-bebas text-2xl text-yellow-300 tracking-widest border-b border-white/20 w-fit pb-1 uppercase drop-shadow-sm">LEGENDARY LINKS</h4>
                          <div className="space-y-4 flex flex-col items-center sm:items-start w-full">
-                            <button onClick={() => handleNavigate('menu')} className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Browse Menu</button>
-                            <button onClick={() => handleNavigate('home', '#about')} className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Our Story</button>
-                            <button onClick={() => handleNavigate('home', '#purity-promise')} className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Our Promise</button>
-                            <a href={GOOGLE_REVIEWS_LINK} target="_blank" rel="noopener noreferrer" className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Reviews</a>
-                            <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer" className="block text-orange-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">LinkedIn</a>
+                            <button onClick={() => handleNavigate('menu')} className="block text-red-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Browse Menu</button>
+                            <button onClick={() => handleNavigate('home', '#about')} className="block text-red-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Our Story</button>
+                            <button onClick={() => handleNavigate('home', '#purity-promise')} className="block text-red-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Our Promise</button>
+                            <a href={GOOGLE_REVIEWS_LINK} target="_blank" rel="noopener noreferrer" className="block text-red-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Reviews</a>
+                            <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer" className="block text-red-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">LinkedIn</a>
                          </div>
                      </div>
                  </div>
              </div>
              
-             <div className="pt-12 border-t border-white/20 flex flex-col md:flex-row justify-between items-center text-orange-100 text-sm gap-4 text-center">
+             <div className="pt-12 border-t border-white/20 flex flex-col md:flex-row justify-between items-center text-red-100 text-sm gap-4 text-center">
                  <p className="font-bold tracking-wide font-inter uppercase">&copy; 2025 MR. BEEF BURGRZ. CRAFTED FOR REAL BEEF LOVERS.</p>
              </div>
          </div>
@@ -443,10 +443,10 @@ const App: React.FC = () => {
         <div className="fixed bottom-8 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
             <div 
                 onClick={() => setIsCartOpen(true)}
-                className="group relative bg-white border border-orange-600/30 rounded-full p-2 pr-3 md:pr-4 flex items-center justify-between cursor-pointer shadow-[0_15px_50px_-10px_rgba(234,88,12,0.4)] hover:scale-[1.03] transition-all duration-300 w-full max-w-[360px] pointer-events-auto overflow-hidden"
+                className="group relative bg-white border border-red-600/30 rounded-full p-2 pr-3 md:pr-4 flex items-center justify-between cursor-pointer shadow-[0_15px_50px_-10px_rgba(220,38,38,0.4)] hover:scale-[1.03] transition-all duration-300 w-full max-w-[360px] pointer-events-auto overflow-hidden"
             >
                 <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 md:w-14 md:h-14 bg-orange-600 text-white rounded-2xl flex items-center justify-center font-bebas text-2xl md:text-3xl shadow-lg shadow-orange-600/20">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-red-600 text-white rounded-2xl flex items-center justify-center font-bebas text-2xl md:text-3xl shadow-lg shadow-red-600/20">
                         {totalItems}
                     </div>
                     <div className="flex flex-col">
@@ -454,7 +454,7 @@ const App: React.FC = () => {
                         <div className="text-xl md:text-2xl font-bebas text-gray-900 tracking-wide leading-none">{totalAmount}/-</div>
                     </div>
                 </div>
-                <button className="bg-orange-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bebas text-lg md:text-xl tracking-widest flex items-center gap-2 group-hover:bg-orange-800 transition-colors shadow-sm whitespace-nowrap uppercase">
+                <button className="bg-red-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bebas text-lg md:text-xl tracking-widest flex items-center gap-2 group-hover:bg-red-800 transition-colors shadow-sm whitespace-nowrap uppercase">
                     CHECKOUT <ArrowRight className="w-4 h-4" />
                 </button>
             </div>
@@ -463,7 +463,7 @@ const App: React.FC = () => {
 
       <button 
         onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
-        className={`fixed right-6 bg-orange-500 text-white p-4 rounded-2xl shadow-xl hover:bg-orange-400 transition-all duration-300 z-40 transform hover:scale-110 active:scale-95 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20 pointer-events-none'} ${totalItems > 0 ? 'bottom-32' : 'bottom-8'}`}
+        className={`fixed right-6 bg-red-500 text-white p-4 rounded-2xl shadow-xl hover:bg-red-400 transition-all duration-300 z-40 transform hover:scale-110 active:scale-95 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20 pointer-events-none'} ${totalItems > 0 ? 'bottom-32' : 'bottom-8'}`}
       >
         <ChevronUp className="w-8 h-8" />
       </button>
