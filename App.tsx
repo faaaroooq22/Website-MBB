@@ -3,7 +3,6 @@ import { Navbar } from './components/Navbar';
 import { Menu } from './components/Menu';
 import { Cart } from './components/Cart';
 import { OptionModal } from './components/OptionModal';
-import { Deals } from './components/Deals';
 import { MakeYourBurger } from './components/MakeYourBurger';
 import { MenuItem, CartItem } from './types';
 import { Instagram, Facebook, Youtube, MapPin, Star, ChevronUp, Phone, MessageCircle, ShoppingBag, ArrowRight, ChefHat, Sparkles, Quote, ExternalLink, Linkedin, RefreshCw, UtensilsCrossed, ArrowLeft, Search, X, Share2, Bookmark, Navigation, Clock, Package, CupSoda } from 'lucide-react';
@@ -204,7 +203,7 @@ const App: React.FC = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [currentView, setCurrentView] = useState<'home' | 'deals' | 'make-burger' | 'menu'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'make-burger' | 'menu'>('home');
   const [optionModalOpen, setOptionModalOpen] = useState(false);
   const [currentOptionItem, setCurrentOptionItem] = useState<MenuItem | null>(null);
   const [currentOptions, setCurrentOptions] = useState<string[]>([]);
@@ -216,7 +215,7 @@ const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavigate = (view: 'home' | 'deals' | 'menu', hash?: string) => {
+  const handleNavigate = (view: 'home' | 'menu', hash?: string) => {
     setCurrentView(view);
     if (view === 'home' && hash) {
         setTimeout(() => {
@@ -242,16 +241,19 @@ const App: React.FC = () => {
     }
     if (item.id === 'd1') {
         setCurrentOptionItem(item);
-        setCurrentOptions(['7up', 'Pepsi']);
+        setCurrentOptions(['7up', 'Pepsi', 'Fizup Next', 'Cola Next']);
         setModalSelectionMode('multiple');
         setOptionModalOpen(true);
         return;
     }
-    if (item.id === 'b2' || item.id === 'b3') {
-        setCurrentOptionItem(item);
-        setCurrentOptions(['Grilled Onion', 'Raw Onion']);
-        setModalSelectionMode('single');
-        setOptionModalOpen(true);
+    if (item.id === 'b2') {
+        const variantItem = { ...item, id: `${item.id}-Raw Onion`, name: `${item.name} (Raw Onion)` };
+        addToCart(variantItem);
+        return;
+    }
+    if (item.id === 'b3') {
+        const variantItem = { ...item, id: `${item.id}-Grilled Onion`, name: `${item.name} (Grilled Onion)` };
+        addToCart(variantItem);
         return;
     }
     addToCart(item);
@@ -286,7 +288,7 @@ const App: React.FC = () => {
             cartCount={totalItems} 
             onOpenCart={() => setIsCartOpen(true)}
             onNavigate={(v, h) => handleNavigate(v as any, h)}
-            currentView={currentView === 'deals' ? 'deals' : 'home'}
+            currentView={currentView === 'menu' ? 'menu' : 'home'}
           />
       )}
       
@@ -364,8 +366,6 @@ const App: React.FC = () => {
             cartCount={totalItems}
             onOpenCart={() => setIsCartOpen(true)}
           />
-        ) : currentView === 'deals' ? (
-          <Deals onBack={() => handleNavigate('home')} />
         ) : (
             <MakeYourBurger onBack={() => handleNavigate('home')} onAddToCart={addToCart} />
         )}
@@ -408,7 +408,7 @@ const App: React.FC = () => {
                               <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-orange-600 transition-all"><Phone className="w-5 h-5" /></div>
                               +92 324 0460398
                             </a>
-                            <a href="https://wa.me/message/GCCQJTH6ZQF6O1" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-4 text-orange-50 hover:text-white transition-colors font-inter group">
+                            <a href="https://wa.me/923240460398?text=Hi%20Mr.%20Beef%20Burgrz!%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-4 text-orange-50 hover:text-white transition-colors font-inter group">
                               <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-orange-600 transition-all"><MessageCircle className="w-5 h-5" /></div>
                               WhatsApp Us
                             </a>

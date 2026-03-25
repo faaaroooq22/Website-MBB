@@ -4,17 +4,9 @@ export const MENU_ITEMS: MenuItem[] = [
   // --- HOUSE OF BEEF ---
   // Classic
   {
-    id: 'b1',
-    name: 'Pocket Smash',
-    description: 'Brioche bun, 70g beef patty, single cheddar cheese slice, iceberg, honey mustard sauce.',
-    price: 450,
-    category: 'House of Beef',
-    subcategory: 'Classic Smash Burgers'
-  },
-  {
     id: 'b2',
     name: 'Vintage Beef',
-    description: 'Brioche bun, 125g beef patty, single cheese, iceberg, raw/grilled onion, tomato, honey mustard.',
+    description: 'Brioche bun, 125g beef patty, single cheese, iceberg, raw onion, tomato, honey mustard.',
     price: 650,
     category: 'House of Beef',
     subcategory: 'Classic Smash Burgers',
@@ -23,7 +15,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: 'b3',
     name: 'American Classic',
-    description: 'Brioche bun, 125g beef patty, single cheese, pickles, tomatoes, raw/grilled onion, chef\'s signature sauce.',
+    description: 'Brioche bun, 125g beef patty, single cheese, pickles, tomatoes, grilled onion, chef\'s signature sauce.',
     price: 690,
     category: 'House of Beef',
     subcategory: 'Classic Smash Burgers'
@@ -137,7 +129,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Potato bun, grilled chicken fillet, single cheese slice, iceberg, raw onion & tomato, chef\'s signature sauce.',
     price: 600,
     category: 'House of Chicken',
-    subcategory: 'Flame-Grilled Burgers'
+    subcategory: 'Grilled Chicken Burger'
   },
   {
     id: 'cg2',
@@ -145,23 +137,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Potato bun, grilled chicken fillet, single cheese slice, iceberg, grilled onions, jalapeños, hot jalapeño sauce.',
     price: 650,
     category: 'House of Chicken',
-    subcategory: 'Flame-Grilled Burgers'
-  },
-
-  // --- BROAST ---
-  {
-    id: 'br1',
-    name: 'Qtr. Broast (Chest)',
-    description: 'Salted chest broast, fries, toumiya sauce, bun.',
-    price: 550,
-    category: 'Chicken Broast'
-  },
-  {
-    id: 'br2',
-    name: 'Qtr. Broast (Leg)',
-    description: 'Salted leg broast, fries, toumiya sauce, bun.',
-    price: 530,
-    category: 'Chicken Broast'
+    subcategory: 'Grilled Chicken Burger'
   },
 
   // --- SNACKS ---
@@ -271,7 +247,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: 'd1',
     name: 'Cold Drink 345ml',
-    description: '7up & Pepsi.',
+    description: '7up, Pepsi, Fizup Next & Cola Next.',
     price: 100,
     category: 'Drinks'
   },

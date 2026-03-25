@@ -10,15 +10,74 @@ interface MenuProps {
   onOpenCart: () => void;
 }
 
+const BurgerSingleIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M4 11a8 8 0 0 1 16 0" />
+    <path d="M2 11h20" />
+    <path d="M2 14h20" />
+    <path d="M4 17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2" />
+  </svg>
+);
+
+const BurgerDoubleIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M4 10a8 8 0 0 1 16 0" />
+    <path d="M2 10h20" />
+    <path d="M2 13h20" />
+    <path d="M2 16h20" />
+    <path d="M4 19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2" />
+  </svg>
+);
+
+const BurgerCrispyIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M4 11a8 8 0 0 1 16 0" />
+    <path d="M2 11h20" />
+    <path d="M2 14c1 0 1-1 2-1s1 1 2 1 1-1 2-1 1 1 2 1 1-1 2-1 1 1 2 1 1-1 2-1 1 1 2 1" />
+    <path d="M4 17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2" />
+  </svg>
+);
+
+const BurgerGrilledIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M4 11a8 8 0 0 1 16 0" />
+    <path d="M2 11h20" />
+    <path d="M2 14h20" strokeDasharray="2 2" />
+    <path d="M4 17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2" />
+  </svg>
+);
+
+const NuggetsIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="3" y="4" width="8" height="6" rx="2" />
+    <rect x="13" y="7" width="8" height="5" rx="2" />
+    <rect x="7" y="14" width="10" height="6" rx="2" />
+  </svg>
+);
+
+const FriesIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M5 10V2M9 10V3M13 10V2M17 10V4" />
+    <path d="M3 10h18l-2 11H5L3 10z" />
+  </svg>
+);
+
+const PlusOutlineIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 8v8M8 12h8" />
+  </svg>
+);
+
 const NAV_ITEMS = [
-  { label: 'Classic Beef', targetId: 'sec-house-of-beef', icon: Flame, color: 'text-orange-500' },
-  { label: 'Premium Beef', targetId: 'sec-premium-beef', icon: Utensils, color: 'text-red-600' },
-  { label: 'Zingsters', targetId: 'sec-house-of-chicken', icon: Drumstick, color: 'text-orange-600' },
-  { label: 'Broast', targetId: 'sec-broast', icon: Utensils, color: 'text-amber-600' },
-  { label: 'Snacks', targetId: 'sec-snacks', icon: Package, color: 'text-orange-400' },
-  { label: 'Fries', targetId: 'sec-fries', icon: Flame, color: 'text-yellow-600' },
+  { label: 'Classic Beef', targetId: 'sec-house-of-beef', icon: BurgerSingleIcon, color: 'text-orange-500' },
+  { label: 'Premium Beef', targetId: 'sec-premium-beef', icon: BurgerDoubleIcon, color: 'text-red-600' },
+  { label: 'Zingsters', targetId: 'sec-house-of-chicken', icon: BurgerCrispyIcon, color: 'text-orange-600' },
+  { label: 'Grilled Chicken', targetId: 'sec-grilled-chicken', icon: BurgerGrilledIcon, color: 'text-red-500' },
+  { label: 'Snacks', targetId: 'sec-snacks', icon: NuggetsIcon, color: 'text-orange-400' },
+  { label: 'Fries', targetId: 'sec-fries', icon: FriesIcon, color: 'text-yellow-600' },
   { label: 'Drinks', targetId: 'sec-drinks', icon: CupSoda, color: 'text-blue-500' },
-  { label: 'Extras', targetId: 'sec-addons', icon: Package, color: 'text-gray-500' },
+  { label: 'Extras', targetId: 'sec-addons', icon: PlusOutlineIcon, color: 'text-gray-500' },
 ];
 
 export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOpenCart }) => {
@@ -69,7 +128,6 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
   const getContainerId = (category: string) => {
       if (category === 'House of Beef') return 'sec-house-of-beef';
       if (category === 'House of Chicken') return 'sec-house-of-chicken';
-      if (category === 'Chicken Broast') return 'sec-broast';
       if (category === 'Snacks') return 'sec-snacks';
       if (category.includes('Fries')) return 'sec-fries';
       if (category === 'Drinks') return 'sec-drinks';
@@ -80,6 +138,9 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
   const getSubcategorySectionId = (category: string, subcategory: string) => {
       if (category === 'House of Beef') {
           if (subcategory.includes('Premium')) return 'sec-premium-beef';
+      }
+      if (category === 'House of Chicken') {
+          if (subcategory === 'Grilled Chicken Burger') return 'sec-grilled-chicken';
       }
       return undefined;
   };

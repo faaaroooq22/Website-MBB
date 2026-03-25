@@ -4,8 +4,8 @@ import { ShoppingCart, UtensilsCrossed, Clock, MapPin } from 'lucide-react';
 interface NavbarProps {
   cartCount: number;
   onOpenCart: () => void;
-  onNavigate: (view: 'home' | 'deals' | 'menu', hash?: string) => void;
-  currentView: 'home' | 'deals' | 'menu';
+  onNavigate: (view: 'home' | 'menu', hash?: string) => void;
+  currentView: 'home' | 'menu';
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigate, currentView }) => {
@@ -23,10 +23,10 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigat
       const pakistanTimeStr = now.toLocaleString("en-US", { timeZone: "Asia/Karachi" });
       const pakistanDate = new Date(pakistanTimeStr);
       const hour = pakistanDate.getHours();
-      const day = pakistanDate.getDay();
-      const openHour = 17;
+      const openHour = 19;
+      const closingTime = 4;
+      
       let isShopOpen = false;
-      let closingTime = (day === 1 || day === 6 || day === 0) ? 4 : 3;
       
       if (hour < 5) {
         isShopOpen = hour < closingTime;
@@ -49,15 +49,14 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigat
   }, []);
 
   const navLinks = [
-    { name: 'MENU', href: '#', view: 'menu' },
-    { name: 'DEALS', href: '#', view: 'deals' },
-    { name: 'ABOUT', href: '#about', view: 'home' },
-    { name: 'CONTACT', href: '#contact', view: 'home' },
+    { name: 'MENU', href: '#', view: 'menu' as const },
+    { name: 'ABOUT', href: '#about', view: 'home' as const },
+    { name: 'CONTACT', href: '#contact', view: 'home' as const },
   ];
 
   const handleLinkClick = (e: React.MouseEvent, link: typeof navLinks[0]) => {
       e.preventDefault();
-      onNavigate(link.view as 'home' | 'deals' | 'menu', link.href !== '#' ? link.href : undefined);
+      onNavigate(link.view, link.href !== '#' ? link.href : undefined);
   };
 
   const StatusBadge = ({ mobile = false }: { mobile?: boolean }) => (
@@ -74,8 +73,8 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigat
         {/* Back: Hours */}
         <div className={`absolute inset-0 backface-hidden rotate-y-180 flex items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-orange-500 to-orange-600 text-white shadow-xl px-2`}>
           <div className="flex flex-col items-center justify-center leading-[1.1] text-center">
-             <span className={`${mobile ? "text-[8px]" : "text-[11px]"} font-black tracking-tight text-white uppercase`}>Mon-Thu 5PM - 3AM</span>
-             <span className={`${mobile ? "text-[8px]" : "text-[11px]"} font-black tracking-tight text-white uppercase`}>Fri-Sun 5PM - 4AM</span>
+             <span className={`${mobile ? "text-[8px]" : "text-[11px]"} font-black tracking-tight text-white uppercase`}>OPEN DAILY</span>
+             <span className={`${mobile ? "text-[8px]" : "text-[11px]"} font-black tracking-tight text-white uppercase`}>7PM - 4AM</span>
           </div>
         </div>
       </div>
@@ -129,13 +128,13 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigat
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link)}
                   className={`relative font-bebas text-xl tracking-widest transition-colors duration-300 group ${
-                    (currentView === 'deals' && link.name === 'DEALS') || (currentView === 'menu' && link.name === 'MENU')
+                    (currentView === 'menu' && link.name === 'MENU')
                       ? 'text-orange-600' 
                       : 'text-gray-500 hover:text-orange-500'
                   }`}
                 >
                   {link.name}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${((currentView === 'deals' && link.name === 'DEALS') || (currentView === 'menu' && link.name === 'MENU')) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${(currentView === 'menu' && link.name === 'MENU') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                 </a>
               ))}
             </div>
@@ -167,7 +166,7 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigat
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link)}
-                  className={`font-bebas text-lg tracking-widest whitespace-nowrap transition-colors ${((currentView === 'deals' && link.name === 'DEALS') || (currentView === 'menu' && link.name === 'MENU')) ? 'text-orange-600' : 'text-gray-500 hover:text-orange-600'}`}
+                  className={`font-bebas text-lg tracking-widest whitespace-nowrap transition-colors ${(currentView === 'menu' && link.name === 'MENU') ? 'text-orange-600' : 'text-gray-500 hover:text-orange-600'}`}
               >
                   {link.name}
               </a>

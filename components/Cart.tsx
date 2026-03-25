@@ -57,29 +57,32 @@ export const Cart: React.FC<CartProps> = ({
     }
 
     const orderTypeLabel = orderType === 'delivery' ? 'Home Delivery' : 'Takeaway';
-    let message = `*New Order from Website (${orderTypeLabel})*\n\n`;
+    let message = `*🍔 NEW ORDER - MR. BEEF BURGRZ*\n`;
+    message += `--------------------------------\n\n`;
     
-    message += `*Name:* ${customerName}\n`;
-    message += `*Phone:* ${customerPhone}\n`;
+    message += `*ORDER DETAILS:*\n`;
+    message += `• *Type:* ${orderTypeLabel}\n`;
+    message += `• *Name:* ${customerName}\n`;
+    message += `• *Phone:* ${customerPhone}\n`;
     if (orderType === 'delivery') {
-        message += `*Address:* ${customerAddress}\n`;
+        message += `• *Address:* ${customerAddress}\n`;
     }
-    if (instructions) message += `*Instructions:* ${instructions}\n`;
-    message += `\n------------------\n`;
-
-    items.forEach(item => {
-      message += `- ${item.name} (x${item.quantity}): ${item.price * item.quantity}/-\n`;
-      if (item.customDetails) {
-          message += `  ${item.customDetails.replace(/\n/g, '\n  ')}\n`;
-      }
+    if (instructions) message += `• *Instructions:* ${instructions}\n`;
+    
+    message += `\n*ITEMS:*\n`;
+    items.forEach((item, index) => {
+      message += `${index + 1}. *${item.name}* x ${item.quantity} - ${item.price * item.quantity}/-\n`;
     });
-    message += `\n*Total Amount: ${totalAmount}/-*`;
-    message += `\n\nPlease confirm my order.`;
 
-    // Updated WhatsApp link to custom business link
-    const waBaseUrl = 'https://wa.me/message/GCCQJTH6ZQF6O1';
+    message += `\n--------------------------------\n`;
+    message += `*GRAND TOTAL: ${totalAmount}/-*`;
+    message += `\n--------------------------------\n\n`;
+    message += `Please confirm my order. Thank you!`;
+
+    // Use the phone number format for dynamic messages as short links often ignore the text parameter
+    const waPhone = '923240460398';
     const encodedMessage = encodeURIComponent(message);
-    const url = `${waBaseUrl}?text=${encodedMessage}`;
+    const url = `https://wa.me/${waPhone}?text=${encodedMessage}`;
     
     window.open(url, '_blank');
   };
