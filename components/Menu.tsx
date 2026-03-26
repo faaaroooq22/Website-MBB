@@ -75,9 +75,9 @@ const NAV_ITEMS = [
   { label: 'Zingsters', targetId: 'sec-house-of-chicken', icon: BurgerCrispyIcon, color: 'text-red-600' },
   { label: 'Grilled Chicken', targetId: 'sec-grilled-chicken', icon: BurgerGrilledIcon, color: 'text-red-500' },
   { label: 'Snacks', targetId: 'sec-snacks', icon: NuggetsIcon, color: 'text-red-400' },
-  { label: 'Fries', targetId: 'sec-fries', icon: FriesIcon, color: 'text-yellow-600' },
+  { label: 'Fries', targetId: 'sec-fries', icon: FriesIcon, color: 'text-red-600' },
   { label: 'Drinks', targetId: 'sec-drinks', icon: CupSoda, color: 'text-blue-500' },
-  { label: 'Extras', targetId: 'sec-addons', icon: PlusOutlineIcon, color: 'text-gray-500' },
+  { label: 'Add-ons', targetId: 'sec-addons', icon: PlusOutlineIcon, color: 'text-gray-500' },
 ];
 
 export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOpenCart }) => {
@@ -159,7 +159,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
           
           <div className="flex flex-col items-center">
                <span className="text-[9px] text-gray-400 tracking-[0.2em] font-black uppercase leading-none">Explore Our</span>
-               <span className="font-bebas text-xl text-gray-900 leading-none">LEGENDARY MENU</span>
+               <span className="font-bebas text-xl text-gray-900 leading-none">MENU</span>
           </div>
 
           <button 
@@ -176,7 +176,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
       </div>
 
       <div className="container mx-auto px-4 text-center mt-12 mb-10 reveal active">
-        <p className="font-cursive text-red-600 text-2xl opacity-90 underline decoration-yellow-400 decoration-4 underline-offset-4">Juicy, flavorful, and made fresh for you.</p>
+        <p className="font-cursive text-red-600 text-2xl opacity-90 underline decoration-red-400 decoration-4 underline-offset-4">Juicy, flavorful, and made fresh for you.</p>
       </div>
 
       {/* Sticky Navigation Bar */}

@@ -22,7 +22,7 @@ const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
             {/* Dynamic faint glows for Light Theme */}
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                 <div className="absolute -top-24 -left-24 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-red-400 rounded-full blur-[100px] md:blur-[180px] animate-pulse"></div>
-                <div className="absolute bottom-0 right-0 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-yellow-300 rounded-full blur-[120px] md:blur-[220px] animate-pulse" style={{animationDelay: '1s'}}></div>
+                <div className="absolute bottom-0 right-0 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-red-300 rounded-full blur-[120px] md:blur-[220px] animate-pulse" style={{animationDelay: '1s'}}></div>
             </div>
             
             <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center">
@@ -32,7 +32,7 @@ const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
                         PREMIUM SMASH BURGERS
                     </div>
                     <h1 className="font-bebas text-[18vw] sm:text-[14vw] md:text-[10vw] text-gray-900 tracking-tighter leading-[0.9] md:leading-[0.85] drop-shadow-sm px-2">
-                        JUICY TO THE <br /> <span className="text-red-500 underline decoration-yellow-400 decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">LAST BITE!</span>
+                        JUICY TO THE <br /> <span className="text-red-500 underline decoration-red-400 decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">LAST <span className="text-[#facc15]">BITE!</span></span>
                     </h1>
                     <div className="pt-2 md:pt-8 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
                         <p className="font-cursive text-gray-600 text-2xl md:text-5xl -rotate-2">Karachi's finest smash burgers.</p>
@@ -60,14 +60,14 @@ const OurStory: React.FC = () => {
         <section id="about" className="py-12 md:py-16 bg-white relative overflow-hidden border-b border-neutral-100">
             <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
                 <div className="absolute -top-24 -left-24 w-96 h-96 bg-red-500 rounded-full blur-[120px]"></div>
-                <div className="absolute bottom-0 right-0 w-64 h-64 bg-yellow-400 rounded-full blur-[100px]"></div>
+                <div className="absolute bottom-0 right-0 w-64 h-64 bg-red-400 rounded-full blur-[100px]"></div>
             </div>
             
             <div className="container mx-auto px-4 max-w-5xl relative z-10">
                 <div className="text-center mb-16 reveal active">
                     <span className="font-cursive text-4xl text-red-600 block mb-4">Alhamdulillah.</span>
                     <h2 className="font-bebas text-6xl md:text-8xl text-gray-900 leading-none uppercase">
-                        OUR <span className="text-red-500 underline decoration-yellow-400 decoration-4 underline-offset-4">STORY</span>
+                        OUR <span className="text-red-500 underline decoration-red-400 decoration-4 underline-offset-4">STORY</span>
                     </h2>
                 </div>
                 
@@ -105,8 +105,8 @@ const OurStory: React.FC = () => {
                         </div>
                         
                         <div className="bg-red-600 p-8 rounded-3xl border border-red-700 shadow-lg text-white group hover:bg-red-700 transition-colors">
-                            <h4 className="font-bebas text-3xl text-yellow-400 mb-4 flex items-center gap-3">
-                                <Sparkles size={24} className="fill-yellow-400" />
+                            <h4 className="font-bebas text-3xl text-red-600 mb-4 flex items-center gap-3">
+                                <Sparkles size={24} className="fill-red-600" />
                                 THE DIFFERENCE
                             </h4>
                             <p className="text-sm text-red-50 leading-relaxed">
@@ -115,7 +115,7 @@ const OurStory: React.FC = () => {
                         </div>
                         
                         <div className="px-4 py-2 flex items-center gap-4">
-                            <div className="flex text-yellow-500">
+                            <div className="flex text-red-500">
                                 {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
                             </div>
                             <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">
@@ -149,11 +149,11 @@ const ReviewSection: React.FC = () => {
                 </h2>
                 <div className="flex justify-center gap-1 mb-8">
                     {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={40} className="text-yellow-400 fill-yellow-400" />
+                        <Star key={i} size={40} className="text-red-400 fill-red-400" />
                     ))}
                 </div>
                 <p className="text-gray-500 font-inter text-xl mb-12 max-w-xl mx-auto">
-                    We take pride in our quality and taste. Check what our legendary customers have to say about us on Google.
+                    We take pride in our quality and taste. Check what our customers have to say about us on Google.
                 </p>
                 <a 
                     href={GOOGLE_REVIEWS_LINK} 
@@ -317,10 +317,10 @@ const App: React.FC = () => {
             <OurStory />
 
             <section id="purity-promise" className="py-24 bg-red-600 relative overflow-hidden border-y border-red-700">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400 opacity-20 blur-[100px] rounded-full"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-red-400 opacity-20 blur-[100px] rounded-full"></div>
                 <div className="container mx-auto px-4 max-w-6xl relative z-10 py-16">
                     <h2 className="font-bebas text-6xl sm:text-8xl text-center text-white mb-20 tracking-tighter reveal uppercase text-shadow-lg">
-                        THE <span className="text-yellow-400 underline decoration-white/20 underline-offset-8 font-bebas">PROMISE</span> OF PURITY
+                        THE <span className="text-red-400 underline decoration-white/20 underline-offset-8 font-bebas">PROMISE</span> OF PURITY
                     </h2>
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="relative group reveal">
@@ -346,7 +346,7 @@ const App: React.FC = () => {
                                     <span className="text-xs text-gray-400 font-bold tracking-widest uppercase font-inter">Ratio</span>
                                   </div>
                                   <div className="text-center">
-                                    <span className="block text-4xl font-bebas text-yellow-600 font-bebas">FRESH</span>
+                                    <span className="block text-4xl font-bebas text-red-600 font-bebas">FRESH</span>
                                     <span className="text-xs text-gray-400 font-bold tracking-widest uppercase font-inter">Grind</span>
                                   </div>
                                 </div>
@@ -379,7 +379,7 @@ const App: React.FC = () => {
                      <h3 className="font-bebas text-6xl text-white tracking-tighter leading-none uppercase drop-shadow-md">
                         MR. BEEF BURGRZ
                      </h3>
-                     <p className="text-red-50 text-xl max-w-md mx-auto lg:mx-0 font-medium font-inter">Juicy smash burgers, crispy chicken, and loaded fries. <br/> <span className="text-yellow-300 font-bold">#KarachiSpecial</span></p>
+                     <p className="text-red-50 text-xl max-w-md mx-auto lg:mx-0 font-medium font-inter">Juicy smash burgers, crispy chicken, and loaded fries. <br/> <span className="text-red-300 font-bold">#KarachiSpecial</span></p>
                      
                      <div className="flex gap-4 justify-center lg:justify-start">
                         <a href="https://www.instagram.com/mr.beefburgrz?igsh=bW5xZm43bmR6Ymsw" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:-translate-y-2 border border-white/30 shadow-sm backdrop-blur-sm">
@@ -402,7 +402,7 @@ const App: React.FC = () => {
                  
                  <div className="grid sm:grid-cols-2 gap-12 text-center sm:text-left">
                      <div className="space-y-6">
-                         <h4 className="font-bebas text-2xl text-yellow-300 tracking-widest border-b border-white/20 w-fit pb-1 mx-auto sm:mx-0 uppercase drop-shadow-sm">GET IN TOUCH</h4>
+                         <h4 className="font-bebas text-2xl text-red-300 tracking-widest border-b border-white/20 w-fit pb-1 mx-auto sm:mx-0 uppercase drop-shadow-sm">GET IN TOUCH</h4>
                          <div className="space-y-4">
                             <a href="tel:+923240460398" className="flex items-center justify-center sm:justify-start gap-4 text-red-50 hover:text-white transition-colors font-inter group">
                               <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white border border-white/30 shadow-sm group-hover:bg-white group-hover:text-red-600 transition-all"><Phone className="w-5 h-5" /></div>
@@ -419,7 +419,7 @@ const App: React.FC = () => {
                          </div>
                      </div>
                      <div className="space-y-6 flex flex-col items-center sm:items-start">
-                         <h4 className="font-bebas text-2xl text-yellow-300 tracking-widest border-b border-white/20 w-fit pb-1 uppercase drop-shadow-sm">LEGENDARY LINKS</h4>
+                         <h4 className="font-bebas text-2xl text-red-300 tracking-widest border-b border-white/20 w-fit pb-1 uppercase drop-shadow-sm">LINKS</h4>
                          <div className="space-y-4 flex flex-col items-center sm:items-start w-full">
                             <button onClick={() => handleNavigate('menu')} className="block text-red-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Browse Menu</button>
                             <button onClick={() => handleNavigate('home', '#about')} className="block text-red-50 hover:text-white transition-colors uppercase font-bold tracking-widest text-2xl font-bebas text-center sm:text-left w-full sm:w-auto">Our Story</button>

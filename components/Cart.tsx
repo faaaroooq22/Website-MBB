@@ -187,7 +187,7 @@ export const Cart: React.FC<CartProps> = ({
                             onClick={() => setOrderType('takeaway')}
                             className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all duration-300 ${
                                 orderType === 'takeaway' 
-                                    ? 'bg-yellow-500 text-black shadow-lg' 
+                                    ? 'bg-red-600 text-white shadow-lg' 
                                     : 'text-gray-400 hover:text-gray-600'
                             }`}
                         >

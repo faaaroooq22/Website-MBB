@@ -103,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, onNavigat
               />
               <div className="flex flex-col ml-3 border-l-2 border-neutral-200 pl-3">
                 <span className="font-bebas text-xl md:text-2xl tracking-tighter text-red-500 leading-none uppercase">MR. BEEF BURGRZ</span>
-                <span className="font-cursive text-gray-500 text-[11px] md:text-sm whitespace-nowrap">Juicy to the last bite!</span>
+                <span className="font-cursive text-[#D4AF37] text-[11px] md:text-sm whitespace-nowrap">Juicy to the last BITE!</span>
               </div>
             </a>
 

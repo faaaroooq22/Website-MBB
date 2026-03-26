@@ -261,31 +261,10 @@ export const MENU_ITEMS: MenuItem[] = [
 
   // --- ADD-ONS ---
   {
-    id: 'a6',
-    name: 'Beef Patty 70g',
-    description: 'Add-on smashed beef patty.',
-    price: 200,
-    category: 'Add-ons'
-  },
-  {
     id: 'a1',
     name: 'Beef Patty 125g',
     description: 'Add-on smashed beef patty.',
     price: 300,
-    category: 'Add-ons'
-  },
-  {
-    id: 'a9',
-    name: 'Beef Patty 150g',
-    description: 'Add-on smashed beef patty.',
-    price: 370,
-    category: 'Add-ons'
-  },
-  {
-    id: 'a10',
-    name: 'Crispy chicken patty (s)',
-    description: 'Add-on small crispy patty.',
-    price: 170,
     category: 'Add-ons'
   },
   {
@@ -324,16 +303,9 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'Add-ons'
   },
   {
-    id: 'a8',
-    name: 'Bun',
-    description: 'Extra fresh bun.',
-    price: 40,
-    category: 'Add-ons'
-  },
-  {
     id: 'a5',
     name: 'Dip Sauce',
-    description: 'Garlic, Chipotle, Toumiya, Honey Mustard, Hot Jalapeño, Barbecue, Chef\'s Signature.',
+    description: 'Garlic, Chipotle, Honey Mustard, Hot Jalapeño, Barbecue, Chef\'s Signature.',
     price: 70,
     category: 'Add-ons'
   }
