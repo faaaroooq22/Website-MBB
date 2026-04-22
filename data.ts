@@ -1,312 +1,386 @@
 import { MenuItem } from './types';
 
 export const MENU_ITEMS: MenuItem[] = [
-  // --- HOUSE OF BEEF ---
-  // Classic
+  // --- CLASSIC BEEF ---
   {
-    id: 'b2',
+    id: 'cb1',
     name: 'Vintage Beef',
-    description: 'Brioche bun, 125g beef patty, single cheese, iceberg, raw onion, tomato, honey mustard.',
-    price: 650,
-    category: 'House of Beef',
-    subcategory: 'Classic Smash Burgers',
+    description: 'Brioche bun, smashed beef patty,single cheese slice,iceberg, raw onion, tomato, honey mustard sauce.',
+    price: 700,
+    category: 'Classic Beef',
     isPopular: true
   },
   {
-    id: 'b3',
+    id: 'cb2',
+    name: 'Barbecue smash',
+    description: 'Brioche bun, smashed beef patty,single cheese slice,iceberg, grilled onions, BBQ sauce',
+    price: 700,
+    category: 'Classic Beef'
+  },
+  {
+    id: 'cb3',
+    name: 'Hot Jalapeno Smash',
+    description: 'Brioche bun, smashed beef patty, single cheese slice, iceberg, jalapeño and hot jalapeño sauce.',
+    price: 730,
+    category: 'Classic Beef'
+  },
+  {
+    id: 'cb4',
     name: 'American Classic',
-    description: 'Brioche bun, 125g beef patty, single cheese, pickles, tomatoes, grilled onion, chef\'s signature sauce.',
-    price: 690,
-    category: 'House of Beef',
-    subcategory: 'Classic Smash Burgers'
+    description: 'Brioche bun, smashed beef patty, single cheese slice, iceberg, grilled onion, tomato, pickles, chef\'s signature sauce.',
+    price: 740,
+    category: 'Classic Beef'
   },
   {
-    id: 'b4',
-    name: 'Barbecue Smash',
-    description: 'Brioche bun, 125g beef patty, single cheese, grilled onions, BBQ sauce.',
-    price: 650,
-    category: 'House of Beef',
-    subcategory: 'Classic Smash Burgers'
+    id: 'cb5',
+    name: 'Chessy Classic',
+    description: 'Brioche bun, smashed beef patty, 3x cheese slices, iceberg, grilled onion, honey mustard sauce.',
+    price: 850,
+    category: 'Classic Beef'
   },
   {
-    id: 'b5',
-    name: 'Hot Jalapeño Smash',
-    description: 'Brioche bun, 125g beef patty, single cheese, iceberg, jalapeño, hot jalapeño sauce.',
-    price: 680,
-    category: 'House of Beef',
-    subcategory: 'Classic Smash Burgers'
-  },
-  // Premium
-  {
-    id: 'bp1',
+    id: 'cb6',
     name: 'Pepperoni Smash',
-    description: 'Brioche bun, 150g beef patty, two cheese slices, beef pepperoni, honey mustard sauce.',
-    price: 850,
-    category: 'House of Beef',
-    subcategory: 'Premium Smash Burgers'
+    description: 'Brioche bun, smashed beef patty, 2x cheese slices, beef pepperoni, iceberg honey, mustard sauce.',
+    price: 870,
+    category: 'Classic Beef'
   },
   {
-    id: 'bp2',
+    id: 'cb7',
     name: 'Mushroom Smash',
-    description: 'Brioche bun, 150g beef patty, two cheese slices, grilled onions, caramelized onions, grilled mushrooms, honey mustard sauce.',
-    price: 850,
-    category: 'House of Beef',
-    subcategory: 'Premium Smash Burgers'
+    description: 'Brioche bun, smashed beef patty, 2x cheese slices, caramelized onion, iceberg, grilled onion & mushrooms, honey mustard sauce.',
+    price: 870,
+    category: 'Classic Beef'
   },
   {
-    id: 'bp3',
-    name: 'Majestic Double',
-    description: 'Brioche bun, two 125g beef patties, two cheese slices, iceberg, grilled onion, chipotle sauce.',
-    price: 950,
-    category: 'House of Beef',
-    subcategory: 'Premium Smash Burgers',
-    isPopular: true
-  },
-  {
-    id: 'bp4',
-    name: 'Triple Smash Tower',
-    description: 'Brioche bun, three 125g beef patties, three cheese slices, caramelized onions, chef\'s signature sauce.',
-    price: 1300,
-    category: 'House of Beef',
-    subcategory: 'Premium Smash Burgers'
+    id: 'cb8',
+    name: 'Bacon Smash',
+    description: 'Brioche bun, smashed beef patty, beef bacon, 2x cheese slices , iceberg, tomatoes, grilled onions, pickles, garlic sauce.',
+    price: 990,
+    category: 'Classic Beef'
   },
 
-  // --- HOUSE OF CHICKEN ---
-  // Zingsters
+  // --- PREMIUM BEEF ---
   {
-    id: 'c1',
-    name: 'Mini Zingster',
-    description: 'Potato bun, crispy chicken patty, iceberg, chipotle sauce.',
-    price: 320,
-    category: 'House of Chicken',
-    subcategory: 'Zingsters (Crispy)'
-  },
-  {
-    id: 'c2',
-    name: 'Zingster',
-    description: 'Potato bun, crispy chicken patty, iceberg, chef\'s signature sauce.',
-    price: 500,
-    category: 'House of Chicken',
-    subcategory: 'Zingsters (Crispy)',
+    id: 'pb1',
+    name: 'Majestic Double',
+    description: 'Brioche bun, 2x beef patties, 2x cheese slices, iceberg, grilled onion, chipotle sauce.',
+    price: 1000,
+    category: 'Premium Beef',
     isPopular: true
   },
   {
-    id: 'c3',
-    name: 'Jalapeño Zingster',
-    description: 'Potato bun, crispy chicken patty, single cheese, iceberg, jalapeño, hot jalapeño sauce.',
-    price: 650,
-    category: 'House of Chicken',
-    subcategory: 'Zingsters (Crispy)'
+    id: 'pb2',
+    name: 'Cheesy Quadra',
+    description: 'Brioche bun, 2x beef patties, 4x cheese slices, iceberg, honey mustard sauce.',
+    price: 1150,
+    category: 'Premium Beef'
   },
   {
-    id: 'c4',
-    name: 'Pepperoni Zingster',
-    description: 'Potato bun, crispy chicken patty, single cheese, iceberg, chicken pepperoni, honey mustard sauce.',
-    price: 650,
-    category: 'House of Chicken',
-    subcategory: 'Zingsters (Crispy)'
+    id: 'pb3',
+    name: 'Smash Duo',
+    description: 'Brioche bun, smashed beef patty, grilled chicken fillet, 2x cheese slices, iceberg, sauteed capsicum and onions, garlic sauce',
+    price: 1190,
+    category: 'Premium Beef'
   },
   {
-    id: 'c5',
-    name: 'Mushroom Zingster',
-    description: 'Potato bun, crispy chicken patty, single cheese slice, mushrooms, honey mustard sauce.',
-    price: 700,
-    category: 'House of Chicken',
-    subcategory: 'Zingsters (Crispy)'
+    id: 'pb4',
+    name: 'Smoky Beast',
+    description: 'Brioche bun, 2x beef patties, 2x cheese slices, iceberg, beef pepperoni, chicken pepperoni, grilled mushrooms, grilled onions, chipotle sauce',
+    price: 1350,
+    category: 'Premium Beef'
   },
   {
-    id: 'c6',
-    name: 'Double Cruncher',
-    description: 'Potato bun, two crispy chicken patties, double cheese slices, iceberg, chef\'s signature sauce.',
-    price: 800,
-    category: 'House of Chicken',
-    subcategory: 'Zingsters (Crispy)'
+    id: 'pb5',
+    name: 'Triple Smash Tower',
+    description: 'Brioche bun, 3x beef patties, 3x cheese slices, iceberg caramelized onions, chef\'s signature sauce.',
+    price: 1490,
+    category: 'Premium Beef'
   },
-  // Flame Grilled
+
+  // --- ZINGSTERS ---
   {
-    id: 'cg1',
-    name: 'Grilled Chicken',
-    description: 'Potato bun, grilled chicken fillet, single cheese slice, iceberg, raw onion & tomato, chef\'s signature sauce.',
+    id: 'z1',
+    name: 'Mini Zingster',
+    description: 'Potato bun, crispy chicken patty, iceberg, chipotle sauce.',
+    price: 340,
+    category: 'Zingsters'
+  },
+  {
+    id: 'z2',
+    name: 'Zingster',
+    description: 'Potato bun, crispy chicken patty, iceberg, chef\'s signature sauce.',
+    price: 530,
+    category: 'Zingsters',
+    isPopular: true
+  },
+  {
+    id: 'z3',
+    name: 'Cheese Zingster',
+    description: 'Potato bun, crispy chicken patty, single cheese slice, iceberg, chef\'s signature sauce.',
     price: 600,
-    category: 'House of Chicken',
-    subcategory: 'Grilled Chicken Burger'
+    category: 'Zingsters'
   },
   {
-    id: 'cg2',
+    id: 'z4',
+    name: 'Jalapeño Zingster',
+    description: 'Potato bun, crispy chicken patty, single cheese slice, jalapeño, iceberg, hot jalapeño sauce.',
+    price: 690,
+    category: 'Zingsters'
+  },
+  {
+    id: 'z5',
+    name: 'Pepperoni Zingster',
+    description: 'Potato bun, crispy chicken patty, single cheese slice, chicken pepperoni, iceberg, garlic sauce.',
+    price: 700,
+    category: 'Zingsters'
+  },
+  {
+    id: 'z6',
+    name: 'Mushroom Zingster',
+    description: 'Potato bun, crispy chicken patty, single cheese slice, iceberg, mushrooms, honey mustard sauce.',
+    price: 700,
+    category: 'Zingsters'
+  },
+  {
+    id: 'z7',
+    name: 'Nugget Prime',
+    description: 'Brioche bun, crispy chicken patty, nuggets, single cheese slice, iceberg, garlic sauce.',
+    price: 870,
+    category: 'Zingsters'
+  },
+  {
+    id: 'z8',
+    name: 'Double Cruncher',
+    description: 'Brioche bun, 2x crispy chicken patties, 2x cheese slices, iceberg, chef\'s signature sauce.',
+    price: 890,
+    category: 'Zingsters'
+  },
+
+  // --- GRILLED CHICKEN ---
+  {
+    id: 'gc1',
+    name: 'Grilled Chicken',
+    description: 'Potato bun, grilled chicken fillet, single cheese slice, iceberg, raw onion & tomato, pickles, signature sauce',
+    price: 650,
+    category: 'Grilled Chicken'
+  },
+  {
+    id: 'gc2',
+    name: 'Smoky Barbecue',
+    description: 'Potato bun, grilled chicken fillet, single cheese slice, grilled onions, iceberg, barbecue sauce',
+    price: 650,
+    category: 'Grilled Chicken'
+  },
+  {
+    id: 'gc3',
     name: 'Hot Grilled Chicken',
     description: 'Potato bun, grilled chicken fillet, single cheese slice, iceberg, grilled onions, jalapeños, hot jalapeño sauce.',
-    price: 650,
-    category: 'House of Chicken',
-    subcategory: 'Grilled Chicken Burger'
+    price: 690,
+    category: 'Grilled Chicken'
+  },
+  {
+    id: 'gc4',
+    name: 'Mushroom Grilled Chicken',
+    description: 'Potato bun, grilled chicken fillet, single cheese slice, iceberg, grilled mushrooms, grilled onions, honey mustard sauce',
+    price: 780,
+    category: 'Grilled Chicken'
+  },
+  {
+    id: 'gc5',
+    name: 'Pepperoni Grilled Chicken',
+    description: 'Potato bun, grilled chicken fillet, single cheese slice, iceberg, chicken pepperoni, chipotle sauce.',
+    price: 780,
+    category: 'Grilled Chicken'
+  },
+  {
+    id: 'gc6',
+    name: 'Double Flame',
+    description: 'Brioche bun, 2x grilled chicken fillets, 2x cheese slices, iceberg, tomatoes, grilled onions, garlic sauce',
+    price: 950,
+    category: 'Grilled Chicken'
   },
 
   // --- SNACKS ---
   {
     id: 's1',
     name: '6 Pieces Nuggets',
-    description: 'Served with garlic sauce.',
-    price: 400,
+    description: 'Serve with garlic sauce.',
+    price: 450,
     category: 'Snacks'
   },
   {
     id: 's2',
     name: '12 Pieces Nuggets',
-    description: 'Served with garlic sauce.',
-    price: 750,
+    description: 'Serve with garlic sauce.',
+    price: 870,
+    category: 'Snacks'
+  },
+  {
+    id: 's3',
+    name: '4 Pieces chicken Strips',
+    description: 'Serve with garlic sauce.',
+    price: 500,
     category: 'Snacks'
   },
 
-  // --- FRIES & LOADED ---
-  // Split regular/large for easier cart logic
+  // --- FRIES ---
   {
     id: 'f1r',
     name: 'Salted Fries (Regular)',
     description: 'Classic salted fries.',
-    price: 150,
-    category: 'Fries & Loaded'
+    price: 200,
+    category: 'Fries'
   },
   {
     id: 'f1l',
     name: 'Salted Fries (Large)',
     description: 'Classic salted fries.',
-    price: 250,
-    category: 'Fries & Loaded'
+    price: 300,
+    category: 'Fries'
   },
   {
     id: 'f2r',
-    name: 'Garlic Fries (Regular)',
-    description: 'Crispy fries topped with a creamy garlic sauce.',
-    price: 200,
-    category: 'Fries & Loaded'
+    name: 'Fries with Dip (Regular)',
+    description: 'Crispy fries served with your choice sauce',
+    price: 280,
+    category: 'Fries'
   },
   {
     id: 'f2l',
-    name: 'Garlic Fries (Large)',
-    description: 'Crispy fries topped with a creamy garlic sauce.',
-    price: 300,
-    category: 'Fries & Loaded'
+    name: 'Fries with Dip (Large)',
+    description: 'Crispy fries served with your choice sauce',
+    price: 380,
+    category: 'Fries'
   },
   {
-    id: 'f3r',
-    name: 'Chipotle Fries (Regular)',
-    description: 'Crispy fries topped with a smoky chipotle sauce.',
-    price: 200,
-    category: 'Fries & Loaded'
+    id: 'f3',
+    name: 'Cheese Fries',
+    description: 'Fries with three cheese slices.',
+    price: 400,
+    category: 'Fries'
   },
   {
-    id: 'f3l',
-    name: 'Chipotle Fries (Large)',
-    description: 'Crispy fries topped with a smoky chipotle sauce.',
-    price: 300,
-    category: 'Fries & Loaded'
-  },
-  {
-    id: 'f4r',
-    name: 'Cheese Fries (Regular)',
-    description: 'Bed of fries, three cheddar cheese slices.',
-    price: 350,
-    category: 'Fries & Loaded'
-  },
-  {
-    id: 'f4l',
-    name: 'Cheese Fries (Large)',
-    description: 'Bed of fries, six cheddar cheese slices.',
-    price: 600,
-    category: 'Fries & Loaded'
+    id: 'f4',
+    name: 'Patty Fries',
+    description: 'Crispy fries, smashed beef patty with cheddar cheese slice, grilled onions, topped with garlic sauce',
+    price: 690,
+    category: 'Fries'
   },
   {
     id: 'f5',
-    name: 'Smash Fries (Regular)',
-    description: 'Bed of fries, 70g beef smashed patty, single cheddar cheese slice, garlic sauce.',
-    price: 450,
-    category: 'Fries & Loaded'
+    name: 'Smash Fries L',
+    description: 'Bed of fries, chunks of smashed beef, cheddar cheese slices, grilled mushrooms, jalapeño, beef pepperoni, garlic & honey mustard sauce',
+    price: 890,
+    category: 'Fries'
   },
   {
     id: 'f6',
-    name: 'Smash Fries (Loaded)',
-    description: 'Bed of fries, 2x 70g beef patties, double cheese, grilled mushrooms, jalapeño, beef pepperoni, honey mustard sauce.',
-    price: 850,
-    category: 'Fries & Loaded'
+    name: 'Crunch Fries R',
+    description: 'Crispy fries, crispy chicken chunks, cheddar cheese slice, chef’s sig sauce',
+    price: 490,
+    category: 'Fries'
   },
   {
     id: 'f7',
-    name: 'Crunch Fries (Regular)',
-    description: 'Bed of fries, crispy chicken chunks, single cheddar cheese slice, chef\'s signature sauce.',
-    price: 450,
-    category: 'Fries & Loaded'
-  },
-  {
-    id: 'f8',
-    name: 'Crunch Fries (Loaded)',
-    description: 'Bed of fries, 2x crispy chicken chunks, double cheese, grilled mushrooms, jalapeño, chicken pepperoni, hot jalapeño sauce.',
-    price: 850,
-    category: 'Fries & Loaded'
+    name: 'Crunch Fries L',
+    description: 'Bed of fries, chunks of crispy chicken, cheddar cheese slices, grilled mushrooms, jalapeño, chicken pepperoni, hot jalapeño & chipotle sauce.',
+    price: 890,
+    category: 'Fries'
   },
 
-  // --- DRINKS ---
+  // --- DRINK ---
   {
     id: 'd1',
-    name: 'Cold Drink 345ml',
-    description: '7up, Pepsi, Fizup Next & Cola Next.',
+    name: 'Cola NeXt 345ml',
+    description: '',
     price: 100,
-    category: 'Drinks'
+    category: 'Drink'
   },
   {
     id: 'd2',
+    name: 'Fizup NeXt 345ml',
+    description: '',
+    price: 100,
+    category: 'Drink'
+  },
+  {
+    id: 'd3',
     name: 'Mineral Water (Small)',
-    description: 'Hydrate with quality.',
+    description: '',
     price: 60,
-    category: 'Drinks'
+    category: 'Drink'
   },
 
-  // --- ADD-ONS ---
+  // --- ADD ON ---
   {
     id: 'a1',
-    name: 'Beef Patty 125g',
-    description: 'Add-on smashed beef patty.',
-    price: 300,
-    category: 'Add-ons'
+    name: 'Beef Patty',
+    description: '',
+    price: 400,
+    category: 'Add On'
   },
   {
     id: 'a2',
     name: 'Crispy Chicken Patty',
-    description: 'Add-on regular crispy patty.',
-    price: 250,
-    category: 'Add-ons'
-  },
-  {
-    id: 'a7',
-    name: 'Grilled Chicken Fillet',
-    description: 'Add-on flame-grilled fillet.',
-    price: 250,
-    category: 'Add-ons'
+    description: '',
+    price: 350,
+    category: 'Add On'
   },
   {
     id: 'a3',
-    name: 'Beef/Chicken Pepperoni',
-    description: 'Add-on pepperoni slices.',
-    price: 100,
-    category: 'Add-ons'
-  },
-  {
-    id: 'a11',
-    name: 'Mushrooms',
-    description: 'Add-on grilled mushrooms.',
-    price: 100,
-    category: 'Add-ons'
+    name: 'Grilled Chicken Fillet',
+    description: '',
+    price: 350,
+    category: 'Add On'
   },
   {
     id: 'a4',
-    name: 'Cheddar Cheese Slice',
-    description: 'Add-on premium cheese.',
-    price: 60,
-    category: 'Add-ons'
+    name: 'Beef/Chicken Pepperoni',
+    description: '',
+    price: 100,
+    category: 'Add On'
   },
   {
     id: 'a5',
+    name: 'Jalapenos/Pickles',
+    description: '',
+    price: 60,
+    category: 'Add On'
+  },
+  {
+    id: 'a6',
+    name: 'Caramelized Onions',
+    description: '',
+    price: 50,
+    category: 'Add On'
+  },
+  {
+    id: 'a7',
+    name: 'Cheddar Cheese Slice',
+    description: '',
+    price: 80,
+    category: 'Add On'
+  },
+  {
+    id: 'a8',
+    name: 'Beef Bacon',
+    description: '',
+    price: 300,
+    category: 'Add On'
+  },
+  {
+    id: 'a9',
+    name: 'Mushrooms',
+    description: '',
+    price: 100,
+    category: 'Add On'
+  },
+  {
+    id: 'a10',
     name: 'Dip Sauce',
-    description: 'Garlic, Chipotle, Honey Mustard, Hot Jalapeño, Barbecue, Chef\'s Signature.',
-    price: 70,
-    category: 'Add-ons'
+    description: 'Garlic, Chipotle Sauce, Honey Mustard, Hot Jalapeño, Barbecue, Chef\'s Signature',
+    price: 90,
+    category: 'Add On'
   }
 ];

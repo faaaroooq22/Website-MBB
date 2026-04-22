@@ -232,28 +232,11 @@ const App: React.FC = () => {
   };
 
   const handleAddToCartClick = (item: MenuItem) => {
-    if (item.id === 'a5') {
+    if (item.id === 'a10') {
         setCurrentOptionItem(item);
-        setCurrentOptions(['Garlic', 'Chipotle', 'Toumiya', 'Honey Mustard', 'Hot Jalapeño', 'Barbecue', 'Chef\'s Signature']);
+        setCurrentOptions(['Garlic', 'Chipotle Sauce', 'Honey Mustard', 'Hot Jalapeño', 'Barbecue', 'Chef\'s Signature']);
         setModalSelectionMode('multiple');
         setOptionModalOpen(true);
-        return;
-    }
-    if (item.id === 'd1') {
-        setCurrentOptionItem(item);
-        setCurrentOptions(['7up', 'Pepsi', 'Fizup Next', 'Cola Next']);
-        setModalSelectionMode('multiple');
-        setOptionModalOpen(true);
-        return;
-    }
-    if (item.id === 'b2') {
-        const variantItem = { ...item, id: `${item.id}-Raw Onion`, name: `${item.name} (Raw Onion)` };
-        addToCart(variantItem);
-        return;
-    }
-    if (item.id === 'b3') {
-        const variantItem = { ...item, id: `${item.id}-Grilled Onion`, name: `${item.name} (Grilled Onion)` };
-        addToCart(variantItem);
         return;
     }
     addToCart(item);

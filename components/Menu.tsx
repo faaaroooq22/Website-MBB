@@ -70,9 +70,9 @@ const PlusOutlineIcon = ({ className }: { className?: string }) => (
 );
 
 const NAV_ITEMS = [
-  { label: 'Classic Beef', targetId: 'sec-house-of-beef', icon: BurgerSingleIcon, color: 'text-red-500' },
+  { label: 'Classic Beef', targetId: 'sec-classic-beef', icon: BurgerSingleIcon, color: 'text-red-500' },
   { label: 'Premium Beef', targetId: 'sec-premium-beef', icon: BurgerDoubleIcon, color: 'text-red-600' },
-  { label: 'Zingsters', targetId: 'sec-house-of-chicken', icon: BurgerCrispyIcon, color: 'text-red-600' },
+  { label: 'Zingsters', targetId: 'sec-zingsters', icon: BurgerCrispyIcon, color: 'text-red-600' },
   { label: 'Grilled Chicken', targetId: 'sec-grilled-chicken', icon: BurgerGrilledIcon, color: 'text-red-500' },
   { label: 'Snacks', targetId: 'sec-snacks', icon: NuggetsIcon, color: 'text-red-400' },
   { label: 'Fries', targetId: 'sec-fries', icon: FriesIcon, color: 'text-red-600' },
@@ -126,22 +126,18 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
   };
 
   const getContainerId = (category: string) => {
-      if (category === 'House of Beef') return 'sec-house-of-beef';
-      if (category === 'House of Chicken') return 'sec-house-of-chicken';
+      if (category === 'Classic Beef') return 'sec-classic-beef';
+      if (category === 'Premium Beef') return 'sec-premium-beef';
+      if (category === 'Zingsters') return 'sec-zingsters';
+      if (category === 'Grilled Chicken') return 'sec-grilled-chicken';
       if (category === 'Snacks') return 'sec-snacks';
-      if (category.includes('Fries')) return 'sec-fries';
-      if (category === 'Drinks') return 'sec-drinks';
-      if (category === 'Add-ons') return 'sec-addons';
+      if (category === 'Fries') return 'sec-fries';
+      if (category === 'Drink') return 'sec-drinks';
+      if (category === 'Add On') return 'sec-addons';
       return undefined;
   };
 
   const getSubcategorySectionId = (category: string, subcategory: string) => {
-      if (category === 'House of Beef') {
-          if (subcategory.includes('Premium')) return 'sec-premium-beef';
-      }
-      if (category === 'House of Chicken') {
-          if (subcategory === 'Grilled Chicken Burger') return 'sec-grilled-chicken';
-      }
       return undefined;
   };
 
