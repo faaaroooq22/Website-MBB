@@ -227,57 +227,63 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onCustomAddon, onBack, 
           {categories.map((category) => {
             const categoryItems = MENU_ITEMS.filter(item => item.category === category);
             const subcategories = Array.from(new Set(categoryItems.map(item => item.subcategory || 'General')));
+            
+            // Sort Add-ons to put Dip Sauce (a10) at the top
+            if (category === 'Add On') {
+              categoryItems.sort((a, b) => (a.id === 'a10' ? -1 : b.id === 'a10' ? 1 : 0));
+            }
+
             const containerIdVal = getContainerId(category);
 
             return (
               <div key={category} id={containerIdVal} className="reveal active scroll-mt-64 text-left">
-                <div className="flex items-center gap-4 mb-4">
-                    <h3 className={`text-4xl sm:text-7xl font-bebas tracking-tighter uppercase text-gray-900`}>
-                      {category}
-                    </h3>
-                    <div className="h-0.5 flex-1 bg-neutral-200"></div>
-                </div>
+                      <div className="flex items-center gap-4 mb-4">
+                          <h3 className={`text-4xl sm:text-7xl font-bebas tracking-tighter uppercase text-gray-900`}>
+                            {category}
+                          </h3>
+                          <div className="h-0.5 flex-1 bg-neutral-200"></div>
+                      </div>
 
-                {(category === 'Classic Beef' || category === 'Premium Beef') && (
-                  <p className="text-sm md:text-lg font-black text-red-600 uppercase tracking-wide mb-6 flex items-center gap-2">
-                    <span className="inline-block w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-                    Each beef patty contains 125g of beef
-                  </p>
-                )}
-                
-                {category === 'Add On' && (
-                  <p className="text-xs text-red-600 font-bold mb-8 italic uppercase tracking-wider">
-                    "Add-on items can only be added to existing menu items and cannot be ordered separately, except for dip sauce."
-                  </p>
-                )}
-                
-                {subcategories.map(subcategory => {
-                  const items = categoryItems.filter(item => (item.subcategory || 'General') === subcategory);
-                  const showSubheader = subcategory !== 'General';
-                  const sectionId = getSubcategorySectionId(category, subcategory);
-
-                  return (
-                    <div key={subcategory} id={sectionId} className="mb-10 last:mb-0 scroll-mt-64">
-                      {showSubheader && (
-                        <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
-                          {subcategory}
-                        </h4>
+                      {(category === 'Classic Beef' || category === 'Premium Beef') && (
+                        <p className="text-sm md:text-lg font-black text-red-600 uppercase tracking-wide mb-6 flex items-center gap-2">
+                          <span className="inline-block w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                          Each beef patty contains 125g of beef
+                        </p>
                       )}
                       
-                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-                        {items.map((item) => {
-                          const isAddon = item.category === 'Add On';
-                          const isDipSauce = item.id === 'a10';
-                          const showAddonBtn = !['Drink', 'Add On'].includes(item.category);
-                          const isSelected = selectedItemIds.includes(item.id);
+                      {category === 'Add On' && (
+                        <p className="text-xs text-red-600 font-bold mb-8 italic uppercase tracking-wider">
+                          "Add-on items can only be added to existing menu items and cannot be ordered separately, except for dip sauce."
+                        </p>
+                      )}
+                      
+                      {subcategories.map(subcategory => {
+                        const items = categoryItems.filter(item => (item.subcategory || 'General') === subcategory);
+                        const showSubheader = subcategory !== 'General';
+                        const sectionId = getSubcategorySectionId(category, subcategory);
 
-                          return (
-                            <div 
-                              key={item.id}
-                              onClick={() => !isAddon || isDipSauce ? onAddToCart(item) : null}
-                              className={`group relative flex flex-col p-3 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-white border border-neutral-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer tap-highlight-transparent active:scale-95 overflow-hidden ${!isAddon || isDipSauce ? 'hover:-translate-y-1' : 'opacity-80'}`}
-                            >
+                        return (
+                          <div key={subcategory} id={sectionId} className="mb-10 last:mb-0 scroll-mt-64">
+                            {showSubheader && (
+                              <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                {subcategory}
+                              </h4>
+                            )}
+                            
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+                              {items.map((item) => {
+                                const isAddon = item.category === 'Add On';
+                                const isDipSauce = item.id === 'a10';
+                                const showAddonBtn = !['Drink', 'Add On'].includes(item.category);
+                                const isSelected = selectedItemIds.includes(item.id);
+
+                                return (
+                                  <div 
+                                    key={item.id}
+                                    onClick={() => !isAddon || isDipSauce ? onAddToCart(item) : null}
+                                    className={`group relative flex flex-col p-3 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-white border border-neutral-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer tap-highlight-transparent active:scale-95 overflow-hidden ${!isAddon || isDipSauce ? 'hover:-translate-y-1' : 'opacity-80'}`}
+                                  >
                               <div className="flex flex-col h-full relative z-10">
                                 <h5 className="font-bebas text-lg md:text-3xl tracking-tight text-gray-900 mb-0.5 md:mb-1 group-hover:text-red-600 transition-colors leading-none">
                                   {item.name}
@@ -299,7 +305,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onCustomAddon, onBack, 
                                           e.stopPropagation();
                                           if (isSelected) onCustomAddon(item);
                                         }}
-                                        className={`h-6 md:h-10 px-2 md:px-3 text-[8px] md:text-xs font-black uppercase tracking-widest rounded-lg md:rounded-xl shadow-sm transition-all duration-300 ${
+                                        className={`h-6 md:h-8 px-2 md:px-2.5 text-[8px] md:text-[10px] font-black uppercase tracking-widest rounded-lg md:rounded-xl shadow-sm transition-all duration-300 ${
                                           isSelected 
                                             ? 'bg-red-600 text-white opacity-100 pointer-events-auto hover:bg-red-700 active:scale-95 shadow-md' 
                                             : 'bg-neutral-100 text-neutral-400 opacity-50 pointer-events-none'
@@ -309,9 +315,17 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onCustomAddon, onBack, 
                                       </button>
                                     )}
                                     
-                                    {(!isAddon || isDipSauce) && (
-                                      <div className="w-6 h-6 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-neutral-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all shadow-sm">
-                                          <Plus className="w-3 h-3 md:w-6 md:h-6" />
+                                    {isDipSauce ? (
+                                      <div className="w-6 h-6 md:w-8 md:h-8 rounded-lg md:rounded-xl bg-neutral-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all shadow-sm">
+                                          <Plus className="w-3 h-3 md:w-4 md:h-4" />
+                                      </div>
+                                    ) : isAddon ? (
+                                      <div className="w-5 h-5 md:w-6 md:h-6 rounded-md bg-neutral-50 text-neutral-300 flex items-center justify-center opacity-40">
+                                          <Plus className="w-2.5 h-2.5" />
+                                      </div>
+                                    ) : (
+                                      <div className="w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-neutral-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all shadow-sm">
+                                          <Plus className="w-4 h-4 md:w-6 md:h-6" />
                                       </div>
                                     )}
                                   </div>

@@ -232,7 +232,7 @@ const App: React.FC = () => {
   };
 
   const handleAddToCartClick = (item: MenuItem) => {
-    if (item.id === 'a10') {
+    if (item.id === 'a10' || item.id === 'f2r' || item.id === 'f2l') {
         setCurrentOptionItem(item);
         setCurrentOptions([
           { name: 'Garlic' },
@@ -242,7 +242,7 @@ const App: React.FC = () => {
           { name: 'Barbecue' },
           { name: 'Chef\'s Signature' }
         ]);
-        setModalSelectionMode('multiple');
+        setModalSelectionMode(item.id === 'a10' ? 'multiple' : 'single');
         setModalType('variants');
         setOptionModalOpen(true);
         return;
