@@ -289,15 +289,43 @@ const App: React.FC = () => {
                 }
             });
 
-            // Generate a unique ID for this customized version to ensure it stays separate in the cart
+            // Generate a deterministic ID for this customized version based on the selected add-ons
+            // This allows identical customizations to group together
+            const selectionKey = selections.sort((a, b) => a.option.localeCompare(b.option))
+                .map(s => `${s.option}_${s.quantity}`).join('|');
+            const customizedId = `${currentOptionItem.id}-custom-${selectionKey}`;
+
             const customizedItem = { 
                 ...currentOptionItem, 
-                id: `${currentOptionItem.id}-custom-${Date.now()}`,
+                id: customizedId,
                 name: `${currentOptionItem.name} (Customized)`,
                 description: `${currentOptionItem.description} | Add-ons: ${addonNames.join(', ')}`,
                 price: currentOptionItem.price + extraPrice
             };
-            addToCart(customizedItem, 1);
+            
+            setCartItems(prev => {
+                const plainIndex = prev.findIndex(item => item.id === currentOptionItem.id);
+                let newCart = [...prev];
+                
+                // If we found a plain version, remove one instance of it to "replace" it with the customized version
+                if (plainIndex > -1) {
+                    if (newCart[plainIndex].quantity > 1) {
+                        newCart[plainIndex] = { ...newCart[plainIndex], quantity: newCart[plainIndex].quantity - 1 };
+                    } else {
+                        newCart.splice(plainIndex, 1);
+                    }
+                }
+                
+                // Now add the customized item
+                const existingCustomIndex = newCart.findIndex(item => item.id === customizedId);
+                if (existingCustomIndex > -1) {
+                    newCart[existingCustomIndex] = { ...newCart[existingCustomIndex], quantity: newCart[existingCustomIndex].quantity + 1 };
+                } else {
+                    newCart.push({ ...customizedItem, quantity: 1 });
+                }
+                
+                return newCart;
+            });
         });
     }
   };
