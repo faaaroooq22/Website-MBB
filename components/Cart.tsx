@@ -9,6 +9,7 @@ interface CartProps {
   items: CartItem[];
   onRemove: (id: string) => void;
   onUpdateQuantity: (id: string, delta: number) => void;
+  onClearCart: () => void;
 }
 
 export const Cart: React.FC<CartProps> = ({ 
@@ -16,7 +17,8 @@ export const Cart: React.FC<CartProps> = ({
   onClose, 
   items, 
   onRemove, 
-  onUpdateQuantity 
+  onUpdateQuantity,
+  onClearCart
 }) => {
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
@@ -24,6 +26,9 @@ export const Cart: React.FC<CartProps> = ({
   const [instructions, setInstructions] = useState('');
   const [orderType, setOrderType] = useState<'delivery' | 'takeaway'>('delivery');
   const [errors, setErrors] = useState<{name?: boolean; phone?: boolean; address?: boolean}>({});
+  const [showValidationAlert, setShowValidationAlert] = useState(false);
+  
+  const formRef = React.useRef<HTMLDivElement>(null);
 
   const totalAmount = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
@@ -53,6 +58,12 @@ export const Cart: React.FC<CartProps> = ({
     if (items.length === 0) return;
 
     if (!validateForm()) {
+        setShowValidationAlert(true);
+        // Redirect/Scroll to form
+        if (formRef.current) {
+            formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        setTimeout(() => setShowValidationAlert(false), 3000);
         return;
     }
 
@@ -72,6 +83,35 @@ export const Cart: React.FC<CartProps> = ({
     message += `\n*ITEMS:*\n`;
     items.forEach((item, index) => {
       message += `${index + 1}. *${item.name}* x ${item.quantity} - ${item.price * item.quantity}/-\n`;
+      
+      // Add customization details if they exist
+      if (item.customDetails) {
+        // For Make Your Burger
+        const details = item.customDetails.split('\n').map(l => l.trim()).filter(l => l).join(', ');
+        message += `   _Ingredients: ${details}_\n`;
+      } 
+      
+      if (item.id.includes('-custom-')) {
+        // For items customized with Add-ons
+        const addonPart = item.description.split('| Add-ons: ')[1];
+        if (addonPart) {
+          message += `   _Add-ons: ${addonPart}_\n`;
+        }
+      }
+
+      if (item.id.includes('-') && !item.id.includes('-custom-') && (item.id.startsWith('f2') || item.id.startsWith('a10'))) {
+          // For Fries with Dip or Dip Sauce selection (without further customization yet)
+          const variantMatch = item.name.match(/\(([^)]+)\)$/);
+          if (variantMatch) {
+              message += `   _Sauce: ${variantMatch[1]}_\n`;
+          }
+      } else if (item.id.includes('-') && item.id.includes('-custom-') && (item.id.startsWith('f2') || item.id.startsWith('a10'))) {
+          // For Fries with Dip that also has Add-ons
+          const sauceMatch = item.name.match(/\(([^)]+)\)\s\(Customized\)$/);
+          if (sauceMatch) {
+              message += `   _Sauce: ${sauceMatch[1]}_\n`;
+          }
+      }
     });
 
     message += `\n--------------------------------\n`;
@@ -85,6 +125,14 @@ export const Cart: React.FC<CartProps> = ({
     const url = `https://wa.me/${waPhone}?text=${encodedMessage}`;
     
     window.open(url, '_blank');
+    
+    // Clear website cart after sending
+    onClearCart();
+    setCustomerName('');
+    setCustomerPhone('');
+    setCustomerAddress('');
+    setInstructions('');
+    onClose();
   };
 
   return (
@@ -168,7 +216,15 @@ export const Cart: React.FC<CartProps> = ({
                     ))}
                 </div>
 
-                <div className="bg-gray-50 rounded-[2rem] p-6 space-y-6 border border-gray-100">
+                <div ref={formRef} className="bg-gray-50 rounded-[2rem] p-6 space-y-6 border border-gray-100 relative">
+                    {showValidationAlert && (
+                        <div className="absolute -top-12 left-0 right-0 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                            <div className="bg-red-600 text-white text-xs font-black px-4 py-2 rounded-full shadow-lg flex items-center justify-center gap-2 mx-auto w-fit uppercase tracking-widest">
+                                <AlertCircle className="w-3 h-3" />
+                                Please enter the required details
+                            </div>
+                        </div>
+                    )}
                     <h3 className="text-gray-900 font-bebas tracking-widest text-2xl border-b border-gray-200 pb-3">ORDER DETAILS</h3>
                     
                     <div className="flex bg-white p-1 rounded-2xl border border-gray-200">

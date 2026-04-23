@@ -289,25 +289,39 @@ const App: React.FC = () => {
                 }
             });
 
-            // Generate a deterministic ID for this customized version based on the selected add-ons
-            // This allows identical customizations to group together
-            const selectionKey = selections.sort((a, b) => a.option.localeCompare(b.option))
-                .map(s => `${s.option}_${s.quantity}`).join('|');
-            const customizedId = `${currentOptionItem.id}-custom-${selectionKey}`;
-
-            const customizedItem = { 
-                ...currentOptionItem, 
-                id: customizedId,
-                name: `${currentOptionItem.name} (Customized)`,
-                description: `${currentOptionItem.description} | Add-ons: ${addonNames.join(', ')}`,
-                price: currentOptionItem.price + extraPrice
-            };
-            
             setCartItems(prev => {
-                const plainIndex = prev.findIndex(item => item.id === currentOptionItem.id);
+                // Find existing instance of this base item in cart to "replace" with customized one
+                // This ensures we pick up any variants (like sauce choice)
+                const plainIndex = prev.findIndex(item => 
+                    item.id === currentOptionItem.id || 
+                    (item.id.startsWith(`${currentOptionItem.id}-`) && !item.id.includes('-custom-'))
+                );
+                
+                let baseItemToCustomize = currentOptionItem;
+                if (plainIndex > -1) {
+                    baseItemToCustomize = prev[plainIndex];
+                }
+
+                // Generate a deterministic ID for this customized version
+                const selectionKey = selections.sort((a, b) => a.option.localeCompare(b.option))
+                    .map(s => `${s.option}_${s.quantity}`).join('|');
+                
+                // If the base item already had a variant (e.g. f2r-Garlic), preserve that path
+                const customizedId = `${baseItemToCustomize.id}-custom-${selectionKey}`;
+
+                const customizedItem = { 
+                    ...baseItemToCustomize, 
+                    id: customizedId,
+                    name: baseItemToCustomize.name.includes('(Customized)') 
+                        ? baseItemToCustomize.name 
+                        : `${baseItemToCustomize.name} (Customized)`,
+                    description: `${baseItemToCustomize.description} | Add-ons: ${addonNames.join(', ')}`,
+                    price: baseItemToCustomize.price + extraPrice
+                };
+                
                 let newCart = [...prev];
                 
-                // If we found a plain version, remove one instance of it to "replace" it with the customized version
+                // If we found a plain/variant version, remove one instance of it
                 if (plainIndex > -1) {
                     if (newCart[plainIndex].quantity > 1) {
                         newCart[plainIndex] = { ...newCart[plainIndex], quantity: newCart[plainIndex].quantity - 1 };
@@ -367,6 +381,7 @@ const App: React.FC = () => {
         items={cartItems} 
         onRemove={(id) => setCartItems(prev => prev.filter(i => i.id !== id))}
         onUpdateQuantity={(id, delta) => setCartItems(prev => prev.map(i => i.id === id ? { ...i, quantity: Math.max(1, i.quantity + delta) } : i))}
+        onClearCart={() => setCartItems([])}
       />
 
       <OptionModal 

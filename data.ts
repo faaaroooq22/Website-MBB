@@ -396,5 +396,12 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Garlic, Chipotle Sauce, Honey Mustard, Hot Jalapeño, Barbecue, Chef\'s Signature',
     price: 90,
     category: 'Add On'
+  },
+  {
+    id: 'a11',
+    name: 'Extra Sauce Topping',
+    description: '',
+    price: 50,
+    category: 'Add On'
   }
 ];

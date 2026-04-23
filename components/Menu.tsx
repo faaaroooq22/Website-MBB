@@ -275,7 +275,7 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onCustomAddon, onBack, 
                               {items.map((item) => {
                                 const isAddon = item.category === 'Add On';
                                 const isDipSauce = item.id === 'a10';
-                                const showAddonBtn = !['Drink', 'Add On'].includes(item.category);
+                                const showAddonBtn = !['Drink', 'Add On', 'Snacks'].includes(item.category);
                                 const isSelected = selectedItemIds.includes(item.id);
 
                                 return (
