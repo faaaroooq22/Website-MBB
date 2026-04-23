@@ -5,9 +5,11 @@ import { Plus, ChevronLeft, ChevronRight, Flame, Utensils, Drumstick, Package, A
 
 interface MenuProps {
   onAddToCart: (item: MenuItem) => void;
+  onCustomAddon: (item: MenuItem) => void;
   onBack: () => void;
   cartCount: number;
   onOpenCart: () => void;
+  selectedItemIds: string[];
 }
 
 const BurgerSingleIcon = ({ className }: { className?: string }) => (
@@ -80,7 +82,7 @@ const NAV_ITEMS = [
   { label: 'Add-ons', targetId: 'sec-addons', icon: PlusOutlineIcon, color: 'text-gray-500' },
 ];
 
-export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOpenCart }) => {
+export const Menu: React.FC<MenuProps> = ({ onAddToCart, onCustomAddon, onBack, cartCount, onOpenCart, selectedItemIds }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
@@ -228,13 +230,26 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
             const containerIdVal = getContainerId(category);
 
             return (
-              <div key={category} id={containerIdVal} className="reveal active scroll-mt-64">
-                <div className="flex items-center gap-4 mb-8">
+              <div key={category} id={containerIdVal} className="reveal active scroll-mt-64 text-left">
+                <div className="flex items-center gap-4 mb-4">
                     <h3 className={`text-4xl sm:text-7xl font-bebas tracking-tighter uppercase text-gray-900`}>
                       {category}
                     </h3>
                     <div className="h-0.5 flex-1 bg-neutral-200"></div>
                 </div>
+
+                {(category === 'Classic Beef' || category === 'Premium Beef') && (
+                  <p className="text-sm md:text-lg font-black text-red-600 uppercase tracking-wide mb-6 flex items-center gap-2">
+                    <span className="inline-block w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                    Each beef patty contains 125g of beef
+                  </p>
+                )}
+                
+                {category === 'Add On' && (
+                  <p className="text-xs text-red-600 font-bold mb-8 italic uppercase tracking-wider">
+                    "Add-on items can only be added to existing menu items and cannot be ordered separately, except for dip sauce."
+                  </p>
+                )}
                 
                 {subcategories.map(subcategory => {
                   const items = categoryItems.filter(item => (item.subcategory || 'General') === subcategory);
@@ -251,34 +266,61 @@ export const Menu: React.FC<MenuProps> = ({ onAddToCart, onBack, cartCount, onOp
                       )}
                       
                       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-                        {items.map((item) => (
-                          <div 
-                            key={item.id}
-                            onClick={() => onAddToCart(item)}
-                            className={`group relative flex flex-col p-3 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-white border border-neutral-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer tap-highlight-transparent active:scale-95 overflow-hidden`}
-                          >
-                            <div className="flex flex-col h-full relative z-10">
-                              <h5 className="font-bebas text-lg md:text-3xl tracking-tight text-gray-900 mb-0.5 md:mb-1 group-hover:text-red-600 transition-colors leading-none">
-                                {item.name}
-                              </h5>
-                              
-                              <p className="text-[9px] md:text-sm text-gray-400 leading-tight mb-2 md:mb-4 flex-grow">
-                                {item.description}
-                              </p>
+                        {items.map((item) => {
+                          const isAddon = item.category === 'Add On';
+                          const isDipSauce = item.id === 'a10';
+                          const showAddonBtn = !['Drink', 'Add On'].includes(item.category);
+                          const isSelected = selectedItemIds.includes(item.id);
 
-                              <div className="flex justify-between items-center pt-2 md:pt-3 border-t border-neutral-50">
-                                <span className="text-base md:text-2xl font-bebas text-gray-900">
-                                  {item.price}/-
-                                </span>
+                          return (
+                            <div 
+                              key={item.id}
+                              onClick={() => !isAddon || isDipSauce ? onAddToCart(item) : null}
+                              className={`group relative flex flex-col p-3 md:p-6 rounded-[1.5rem] md:rounded-[2rem] bg-white border border-neutral-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer tap-highlight-transparent active:scale-95 overflow-hidden ${!isAddon || isDipSauce ? 'hover:-translate-y-1' : 'opacity-80'}`}
+                            >
+                              <div className="flex flex-col h-full relative z-10">
+                                <h5 className="font-bebas text-lg md:text-3xl tracking-tight text-gray-900 mb-0.5 md:mb-1 group-hover:text-red-600 transition-colors leading-none">
+                                  {item.name}
+                                </h5>
                                 
-                                <div className="w-6 h-6 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-neutral-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all shadow-sm">
-                                    <Plus className="w-3 h-3 md:w-6 md:h-6" />
+                                <p className="text-[9px] md:text-sm text-gray-400 leading-tight mb-2 md:mb-4 flex-grow">
+                                  {item.description}
+                                </p>
+
+                                <div className="flex justify-between items-center pt-2 md:pt-3 border-t border-neutral-50 relative">
+                                  <span className="text-base md:text-2xl font-bebas text-gray-900">
+                                    {item.price}/-
+                                  </span>
+                                  
+                                  <div className="flex items-center gap-1 md:gap-2">
+                                    {showAddonBtn && (
+                                      <button 
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          if (isSelected) onCustomAddon(item);
+                                        }}
+                                        className={`h-6 md:h-10 px-2 md:px-3 text-[8px] md:text-xs font-black uppercase tracking-widest rounded-lg md:rounded-xl shadow-sm transition-all duration-300 ${
+                                          isSelected 
+                                            ? 'bg-red-600 text-white opacity-100 pointer-events-auto hover:bg-red-700 active:scale-95 shadow-md' 
+                                            : 'bg-neutral-100 text-neutral-400 opacity-50 pointer-events-none'
+                                        }`}
+                                      >
+                                        Add on
+                                      </button>
+                                    )}
+                                    
+                                    {(!isAddon || isDipSauce) && (
+                                      <div className="w-6 h-6 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-neutral-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all shadow-sm">
+                                          <Plus className="w-3 h-3 md:w-6 md:h-6" />
+                                      </div>
+                                    )}
+                                  </div>
                                 </div>
                               </div>
+                              <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-red-500/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
                             </div>
-                            <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-red-500/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     </div>
                   );

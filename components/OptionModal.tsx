@@ -6,7 +6,7 @@ interface OptionModalProps {
   isOpen: boolean;
   onClose: () => void;
   item: MenuItem | null;
-  options: string[];
+  options: { name: string; price?: number }[];
   selectionType?: 'single' | 'multiple';
   onConfirm: (selections: { option: string; quantity: number }[]) => void;
 }
@@ -19,7 +19,7 @@ export const OptionModal: React.FC<OptionModalProps> = ({ isOpen, onClose, item,
     if (isOpen) {
       if (selectionType === 'multiple') {
         const initialQuantities: Record<string, number> = {};
-        options.forEach(opt => initialQuantities[opt] = 0);
+        options.forEach(opt => initialQuantities[opt.name] = 0);
         setQuantities(initialQuantities);
       } else {
         setSingleSelection(null);
@@ -76,39 +76,44 @@ export const OptionModal: React.FC<OptionModalProps> = ({ isOpen, onClose, item,
         <div className="space-y-4 max-h-[50vh] overflow-y-auto no-scrollbar pr-1">
           {options.map((option) => (
             <div 
-                key={option} 
+                key={option.name} 
                 className={`flex items-center justify-between p-5 rounded-2xl border transition-all duration-200 ${
                     selectionType === 'single'
-                        ? singleSelection === option 
+                        ? singleSelection === option.name 
                             ? 'bg-red-50 border-red-600'
                             : 'bg-white border-gray-100 hover:border-gray-200 cursor-pointer'
                         : 'bg-gray-50 border-gray-100'
                 }`}
-                onClick={() => selectionType === 'single' && setSingleSelection(option)}
+                onClick={() => selectionType === 'single' && setSingleSelection(option.name)}
             >
-              <span className={`font-bold tracking-tight ${
-                  selectionType === 'single' && singleSelection === option ? 'text-red-600' : 'text-gray-700'
-              }`}>{option}</span>
+              <div className="flex flex-col">
+                <span className={`font-bold tracking-tight ${
+                    selectionType === 'single' && singleSelection === option.name ? 'text-red-600' : 'text-gray-700'
+                }`}>{option.name}</span>
+                {option.price !== undefined && option.price > 0 && (
+                  <span className="text-[10px] md:text-sm font-bebas text-gray-400">+{option.price}/-</span>
+                )}
+              </div>
               
               {selectionType === 'multiple' ? (
                   <div className="flex items-center gap-4 bg-white rounded-2xl px-3 py-1.5 border border-gray-200 shadow-sm">
                     <button 
-                      onClick={() => updateQuantity(option, -1)}
-                      className={`text-gray-300 hover:text-red-600 transition-colors ${quantities[option] === 0 ? 'opacity-30 cursor-not-allowed' : ''}`}
-                      disabled={quantities[option] === 0}
+                      onClick={() => updateQuantity(option.name, -1)}
+                      className={`text-gray-300 hover:text-red-600 transition-colors ${quantities[option.name] === 0 ? 'opacity-30 cursor-not-allowed' : ''}`}
+                      disabled={quantities[option.name] === 0}
                     >
                       <Minus className="w-4 h-4" />
                     </button>
-                    <span className="text-gray-900 font-black w-6 text-center">{quantities[option] || 0}</span>
+                    <span className="text-gray-900 font-black w-6 text-center">{quantities[option.name] || 0}</span>
                     <button 
-                      onClick={() => updateQuantity(option, 1)}
+                      onClick={() => updateQuantity(option.name, 1)}
                       className="text-gray-300 hover:text-red-600 transition-colors"
                     >
                       <Plus className="w-4 h-4" />
                     </button>
                   </div>
               ) : (
-                  singleSelection === option && (
+                  singleSelection === option.name && (
                       <div className="bg-red-600 rounded-full p-1.5">
                           <Check className="w-4 h-4 text-white" />
                       </div>

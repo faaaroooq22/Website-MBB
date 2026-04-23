@@ -335,15 +335,29 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'Add On'
   },
   {
-    id: 'a4',
-    name: 'Beef/Chicken Pepperoni',
+    id: 'a4b',
+    name: 'Beef Pepperoni',
     description: '',
     price: 100,
     category: 'Add On'
   },
   {
-    id: 'a5',
-    name: 'Jalapenos/Pickles',
+    id: 'a4c',
+    name: 'Chicken Pepperoni',
+    description: '',
+    price: 100,
+    category: 'Add On'
+  },
+  {
+    id: 'a5j',
+    name: 'Jalapeños',
+    description: '',
+    price: 60,
+    category: 'Add On'
+  },
+  {
+    id: 'a5p',
+    name: 'Pickles',
     description: '',
     price: 60,
     category: 'Add On'

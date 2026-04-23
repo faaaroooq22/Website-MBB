@@ -206,7 +206,7 @@ const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<'home' | 'make-burger' | 'menu'>('home');
   const [optionModalOpen, setOptionModalOpen] = useState(false);
   const [currentOptionItem, setCurrentOptionItem] = useState<MenuItem | null>(null);
-  const [currentOptions, setCurrentOptions] = useState<string[]>([]);
+  const [currentOptions, setCurrentOptions] = useState<{ name: string; price?: number }[]>([]);
   const [modalSelectionMode, setModalSelectionMode] = useState<'single' | 'multiple'>('multiple');
 
   useEffect(() => {
@@ -234,20 +234,72 @@ const App: React.FC = () => {
   const handleAddToCartClick = (item: MenuItem) => {
     if (item.id === 'a10') {
         setCurrentOptionItem(item);
-        setCurrentOptions(['Garlic', 'Chipotle Sauce', 'Honey Mustard', 'Hot Jalapeño', 'Barbecue', 'Chef\'s Signature']);
+        setCurrentOptions([
+          { name: 'Garlic' },
+          { name: 'Chipotle Sauce' },
+          { name: 'Honey Mustard' },
+          { name: 'Hot Jalapeño' },
+          { name: 'Barbecue' },
+          { name: 'Chef\'s Signature' }
+        ]);
         setModalSelectionMode('multiple');
+        setModalType('variants');
         setOptionModalOpen(true);
+        return;
+    }
+    // Don't allow direct add to cart for Add-on items except for Dip Sauce
+    if (item.category === 'Add On') {
         return;
     }
     addToCart(item);
   };
 
+  const handleCustomAddonClick = (item: MenuItem) => {
+      // Get all Add-on items excluding Dip Sauce for the modal
+      import('./data').then(m => {
+          const addOnItems = m.MENU_ITEMS.filter(i => i.category === 'Add On' && i.id !== 'a10');
+          setCurrentOptionItem(item);
+          setCurrentOptions(addOnItems.map(i => ({ name: i.name, price: i.price })));
+          setModalSelectionMode('multiple');
+          setModalType('customization');
+          setOptionModalOpen(true);
+      });
+  };
+
   const handleOptionConfirm = (selections: { option: string; quantity: number }[]) => {
     if (!currentOptionItem) return;
-    selections.forEach(sel => {
-        const variantItem = { ...currentOptionItem, id: `${currentOptionItem.id}-${sel.option}`, name: `${currentOptionItem.name} (${sel.option})` };
-        addToCart(variantItem, sel.quantity);
-    });
+    
+    if (modalType === 'variants') {
+        selections.forEach(sel => {
+            const variantItem = { ...currentOptionItem, id: `${currentOptionItem.id}-${sel.option}`, name: `${currentOptionItem.name} (${sel.option})` };
+            addToCart(variantItem, sel.quantity);
+        });
+    } else {
+        // Customization Logic for Add-ons
+        import('./data').then(m => {
+            const addOnItems = m.MENU_ITEMS.filter(i => i.category === 'Add On');
+            let extraPrice = 0;
+            const addonNames: string[] = [];
+            
+            selections.forEach(sel => {
+                const addOn = addOnItems.find(a => a.name === sel.option);
+                if (addOn) {
+                    extraPrice += addOn.price * sel.quantity;
+                    addonNames.push(`${sel.quantity}x ${sel.option}`);
+                }
+            });
+
+            // Generate a unique ID for this customized version to ensure it stays separate in the cart
+            const customizedItem = { 
+                ...currentOptionItem, 
+                id: `${currentOptionItem.id}-custom-${Date.now()}`,
+                name: `${currentOptionItem.name} (Customized)`,
+                description: `${currentOptionItem.description} | Add-ons: ${addonNames.join(', ')}`,
+                price: currentOptionItem.price + extraPrice
+            };
+            addToCart(customizedItem, 1);
+        });
+    }
   };
 
   const addToCart = (item: MenuItem, quantity: number = 1) => {
@@ -258,8 +310,14 @@ const App: React.FC = () => {
     });
   };
 
-  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-  const totalAmount = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+  const [totalItems, setTotalItems] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [modalType, setModalType] = useState<'variants' | 'customization'>('variants');
+
+  useEffect(() => {
+    setTotalItems(cartItems.reduce((acc, item) => acc + item.quantity, 0));
+    setTotalAmount(cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0));
+  }, [cartItems]);
 
   // Define which views should show the standard Navbar
   const showNavbar = currentView === 'home';
@@ -345,9 +403,11 @@ const App: React.FC = () => {
         ) : currentView === 'menu' ? (
           <Menu 
             onAddToCart={handleAddToCartClick} 
+            onCustomAddon={handleCustomAddonClick}
             onBack={() => handleNavigate('home')} 
             cartCount={totalItems}
             onOpenCart={() => setIsCartOpen(true)}
+            selectedItemIds={Array.from(new Set(cartItems.map(item => item.id.split('-')[0])))}
           />
         ) : (
             <MakeYourBurger onBack={() => handleNavigate('home')} onAddToCart={addToCart} />
