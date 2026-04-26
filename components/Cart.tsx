@@ -117,6 +117,11 @@ export const Cart: React.FC<CartProps> = ({
     message += `\n--------------------------------\n`;
     message += `*GRAND TOTAL: ${totalAmount}/-*`;
     message += `\n--------------------------------\n\n`;
+    
+    if (orderType === 'delivery') {
+      message += `Send your order details to confirm the delivery charges, delivery charges are not included in this total\n\n`;
+    }
+    
     message += `Please confirm my order. Thank you!`;
 
     // Use the phone number format for dynamic messages as short links often ignore the text parameter
