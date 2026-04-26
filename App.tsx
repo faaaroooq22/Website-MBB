@@ -145,7 +145,7 @@ const ReviewSection: React.FC = () => {
                     Trusted by many
                 </div>
                 <h2 className="font-bebas text-6xl md:text-8xl text-gray-900 leading-none uppercase mb-6">
-                    4.9 RATING OF <br /><span className="text-red-500">143+ CUSTOMERS</span>
+                    4.9 RATING OF <br /><span className="text-red-500">200+ CUSTOMERS</span>
                 </h2>
                 <div className="flex justify-center gap-1 mb-8">
                     {[...Array(5)].map((_, i) => (
