@@ -320,6 +320,16 @@ export const Cart: React.FC<CartProps> = ({
                 <span className="text-gray-500 font-bold uppercase tracking-widest text-xs">Grand Total</span>
                 <span className="text-red-600 text-3xl font-bebas">{totalAmount}/-</span>
               </div>
+
+              {orderType === 'delivery' && (
+                <div className="bg-red-50 border border-red-100 rounded-xl p-3">
+                  <p className="text-[10px] md:text-xs text-red-700 font-bold text-center leading-relaxed">
+                    Send your address/location on WhatsApp to confirm delivery charges. 
+                    <br />
+                    Delivery charges are not included in this total.
+                  </p>
+                </div>
+              )}
               
               <button
                 onClick={handleWhatsAppOrder}
