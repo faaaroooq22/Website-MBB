@@ -27,10 +27,10 @@ const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
             
             <div className="container mx-auto px-2 md:px-4 relative z-10 flex flex-col items-center justify-center text-center">
                 <div className="max-w-5xl space-y-1 md:space-y-6 reveal active">
-                    <div className="font-kalma text-3xl md:text-4xl text-gray-900 kalma-text mb-0 md:mb-6">
+                    <div className="font-kalma text-3xl md:text-4xl text-gray-900 kalma-text mb-2 md:mb-6">
                         لا اله الا الله محمد رسول الله
                     </div>
-                    <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-red-600 text-white font-black tracking-[0.2em] text-[10px] md:text-xs mb-0 md:mb-2 shadow-[0_10px_30px_rgba(220,38,38,0.3)] uppercase">
+                    <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-red-600 text-white font-black tracking-[0.2em] text-[8px] md:text-xs mb-0 md:mb-2 shadow-[0_10px_30px_rgba(220,38,38,0.3)] uppercase">
                         <Sparkles size={16} className="fill-current animate-spin-slow" />
                         PREMIUM SMASH BURGERS
                     </div>
