@@ -18,7 +18,7 @@ const LINKEDIN_LINK = "https://www.linkedin.com/company/mr-beef-burgrz/";
 
 const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
     return (
-        <header id="home" className="relative w-full min-h-[100dvh] flex items-center justify-center pt-16 md:pt-24 pb-4 md:pb-12 overflow-hidden bg-white border-b border-neutral-100">
+        <header id="home" className="relative w-full min-h-[100dvh] flex items-center justify-center pt-10 md:pt-24 pb-2 md:pb-12 overflow-hidden bg-white border-b border-neutral-100">
             {/* Dynamic faint glows for Light Theme */}
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                 <div className="absolute -top-24 -left-24 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-red-400 rounded-full blur-[100px] md:blur-[180px] animate-pulse"></div>
@@ -26,18 +26,18 @@ const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
             </div>
             
             <div className="container mx-auto px-2 md:px-4 relative z-10 flex flex-col items-center justify-center text-center">
-                <div className="max-w-5xl space-y-3 md:space-y-6 reveal active">
-                    <div className="font-kalma text-3xl md:text-4xl text-gray-900 kalma-text mb-1 md:mb-6">
+                <div className="max-w-5xl space-y-1 md:space-y-6 reveal active">
+                    <div className="font-kalma text-3xl md:text-4xl text-gray-900 kalma-text mb-0 md:mb-6">
                         لا اله الا الله محمد رسول الله
                     </div>
-                    <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-red-600 text-white font-black tracking-[0.2em] text-[10px] md:text-xs mb-1 md:mb-2 shadow-[0_10px_30px_rgba(220,38,38,0.3)] uppercase">
+                    <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-red-600 text-white font-black tracking-[0.2em] text-[10px] md:text-xs mb-0 md:mb-2 shadow-[0_10px_30px_rgba(220,38,38,0.3)] uppercase">
                         <Sparkles size={16} className="fill-current animate-spin-slow" />
                         PREMIUM SMASH BURGERS
                     </div>
-                    <h1 className="font-bebas text-[18vw] sm:text-[14vw] md:text-[9vw] text-gray-900 tracking-tighter leading-[0.85] md:leading-[0.85] drop-shadow-sm px-1">
+                    <h1 className="font-bebas text-[18vw] sm:text-[14vw] md:text-[9vw] text-gray-900 tracking-tighter leading-[0.82] md:leading-[0.85] drop-shadow-sm px-1">
                         JUICY TO THE <br /> <span className="text-red-500 underline decoration-red-400 decoration-2 md:decoration-8 underline-offset-4 md:underline-offset-8">LAST <span className="text-[#facc15]">BITE!</span></span>
                     </h1>
-                    <div className="pt-2 md:pt-4 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+                    <div className="pt-2 md:pt-4 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12">
                         <p className="font-cursive text-gray-600 text-3xl md:text-4xl -rotate-2">Karachi's finest smash burgers.</p>
                         <button 
                           onClick={onOrderClick} 
