@@ -33,7 +33,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'cb5',
-    name: 'Chessy Classic',
+    name: 'Cheesy Classic',
     description: 'Brioche bun, smashed beef patty, 3x cheese slices, iceberg, grilled onion, honey mustard sauce.',
     price: 850,
     category: 'Classic Beef'
