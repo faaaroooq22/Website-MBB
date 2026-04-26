@@ -18,7 +18,7 @@ const LINKEDIN_LINK = "https://www.linkedin.com/company/mr-beef-burgrz/";
 
 const Hero: React.FC<{ onOrderClick: () => void }> = ({ onOrderClick }) => {
     return (
-        <header id="home" className="relative w-full min-h-[100dvh] flex items-center justify-center pt-10 md:pt-24 pb-2 md:pb-12 overflow-hidden bg-white border-b border-neutral-100">
+        <header id="home" className="relative w-full flex items-center justify-center md:min-h-[100dvh] pt-24 md:pt-24 pb-12 md:pb-12 overflow-hidden bg-white border-b border-neutral-100">
             {/* Dynamic faint glows for Light Theme */}
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                 <div className="absolute -top-24 -left-24 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-red-400 rounded-full blur-[100px] md:blur-[180px] animate-pulse"></div>
